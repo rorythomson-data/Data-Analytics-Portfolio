@@ -1,0 +1,248 @@
+{
+  "plans": [
+    {
+      "external_id": "price_1RoS8dRoTYKnwsE7M1zk0IKJ",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_e5ad8512-3271-40a0-be83-86d809633a4e",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RoQ1qRoTYKnwsE7tfavz9eF",
+      "name": "SILVER PLAN Dolar",
+      "interval_count": 1,
+      "uuid": "pl_30756617-8498-4c25-b82c-97bd8a108520",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RbiNiRoTYKnwsE7H03OCv8j",
+      "name": "PLATINUM PLAN",
+      "interval_count": 3,
+      "uuid": "pl_fd519fda-d574-4cd4-939c-c40f8543ba8c",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1REXLkRoTYKnwsE7Fa9nvRb8",
+      "name": "Ninja Excel & KomboAI",
+      "interval_count": 1,
+      "uuid": "pl_438c89dd-a41f-4de5-ac3f-1dd1d36091a4",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RJYfZRoTYKnwsE7YosygCBL",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_0e379478-ba2f-4d25-b3e7-6fd55f5b8ea5",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RJYmARoTYKnwsE7W9j4f2Qj",
+      "name": "PLATINUM PLAN",
+      "interval_count": 1,
+      "uuid": "pl_d3dd9e1b-2b96-4e8b-9c6a-e5755938ff5b",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RJYmgRoTYKnwsE7Z9ECa82g",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_c24a0dd7-1f0a-4a18-aa55-eb246bc3a498",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RLlefRoTYKnwsE72wxnaSFB",
+      "name": "Ninja Plan",
+      "interval_count": 1,
+      "uuid": "pl_1f11c419-7808-40c7-beaf-4020aadbc1ad",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RU7kpRoTYKnwsE7o6Fw7Qap",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_f5b2c0e2-1cdf-4803-97d0-f104569e2abe",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RU7nERoTYKnwsE7babQdA29",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_39c144dc-5eb3-40a9-8be1-c538c3d9a1e2",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RYlpcRoTYKnwsE7Vmg2w65Q",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_1e74e718-65ab-413b-8212-42da135b234e",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RRIdsRoTYKnwsE76VbC7gZk",
+      "name": "PLATINUM PLAN",
+      "interval_count": 1,
+      "uuid": "pl_087e9b11-f939-4e5b-9fda-9f5ee20312d3",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RU7kpRoTYKnwsE76Vg2YqhD",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_3b9dc672-dfdb-4503-af9d-62a1b3790585",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RU7mwRoTYKnwsE72zAbeMM1",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_9f2bc51a-89de-457a-800c-7a21b29d943d",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1RJYlWRoTYKnwsE7WkPnTZ37",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_41dbd38a-88f2-4afc-a4b6-4f87dca039d9",
+      "interval_unit": "year",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1R8kOeRoTYKnwsE7ZzznbEb9",
+      "name": "VICENTE ENLACE",
+      "interval_count": 1,
+      "uuid": "pl_e47911c6-7d7c-4c00-8ece-ec1b50a52d5a",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1R57vRRoTYKnwsE7yxdHxMcm",
+      "name": "SILVER SIN IMPUESTO",
+      "interval_count": 1,
+      "uuid": "pl_755b5e58-b996-4592-988a-3d47f223f5ac",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1QytIMRoTYKnwsE7xpOMjzYm",
+      "name": "Enlace para Grupo Sting",
+      "interval_count": 1,
+      "uuid": "pl_8d46dbb4-70ef-417d-9c2a-ba66151cc848",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1QnNB3RoTYKnwsE7ceyF1x36",
+      "name": "SILVER PLAN 3X",
+      "interval_count": 1,
+      "uuid": "pl_60652688-82e4-423e-8e49-a29278097490",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1QmY2MRoTYKnwsE7dMz76DJE",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_41d6d614-9735-4d59-9d99-dcc49299f1c7",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1Q4fdURoTYKnwsE7P2JcVbl9",
+      "name": "CORE PLAN",
+      "interval_count": 1,
+      "uuid": "pl_8680a713-3370-4b79-ae61-6c2307fae998",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1Ow10ERoTYKnwsE7iSIC5HcN",
+      "name": "SDR as a Service ONLY PARTNERS",
+      "interval_count": 1,
+      "uuid": "pl_dd80b8f5-ab7a-45a1-a5bd-66df07afafb4",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1P1TUIRoTYKnwsE7PQKkFJAV",
+      "name": "SDR as a Service with Trial",
+      "interval_count": 1,
+      "uuid": "pl_23cd396c-99b8-453b-9964-247562e7d76f",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1P1tXsRoTYKnwsE7uvL0LwiE",
+      "name": "Pro",
+      "interval_count": 1,
+      "uuid": "pl_ce53fbcd-2aae-489b-968f-8488302aa85c",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1P1tYGRoTYKnwsE762XJDOcs",
+      "name": "Ultimate",
+      "interval_count": 1,
+      "uuid": "pl_0dbd3f34-d60f-4348-9073-0ccac5d9af96",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1P97UVRoTYKnwsE7qErzroKR",
+      "name": "SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_291ee4fa-78b8-45dd-80ca-6de51989b851",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1PBJk2RoTYKnwsE7umtPYDll",
+      "name": "SDR as a Service PRO",
+      "interval_count": 1,
+      "uuid": "pl_7e126d52-4ceb-4f82-9195-fa0b6fd993e2",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1PC0coRoTYKnwsE7hfBwp6tc",
+      "name": "SDR as a Service UNLIMITED",
+      "interval_count": 1,
+      "uuid": "pl_aab816fe-c4e4-4858-93f5-07bf47231cfd",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1PGlGiRoTYKnwsE7xCH27NLY",
+      "name": "Kombo SDR",
+      "interval_count": 1,
+      "uuid": "pl_b2b84c7b-9d70-4216-afdc-8155fb2e784f",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
+      "external_id": "price_1PfNfMRoTYKnwsE79GU7jnX7",
+      "name": "PLATINUM PLAN",
+      "interval_count": 1,
+      "uuid": "pl_64bc9753-8924-467e-a070-97d1ca2c2447",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    }
+  ],
+  "current_page": 1,
+  "total_pages": 1,
+  "cursor": "MjAyNC0wNy0yM1QxNDoyNjo0Ny45MzcxMDIwMDBaJjEzNDE2NjI=",
+  "has_more": false
+}

@@ -1,0 +1,174 @@
+{
+  "entries": [
+    {
+      "date": "2024-03-31",
+      "mrr": 0,
+      "percentage-change": 0.0,
+      "mrr-new-business": 0,
+      "mrr-expansion": 0,
+      "mrr-contraction": 0,
+      "mrr-churn": 0,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-04-30",
+      "mrr": 27900,
+      "percentage-change": 0.0,
+      "mrr-new-business": 27900,
+      "mrr-expansion": 0,
+      "mrr-contraction": 0,
+      "mrr-churn": 0,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-05-31",
+      "mrr": 56400,
+      "percentage-change": 0.0,
+      "mrr-new-business": 23600,
+      "mrr-expansion": 4900,
+      "mrr-contraction": 0,
+      "mrr-churn": 0,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-06-30",
+      "mrr": 75500,
+      "percentage-change": 0.0,
+      "mrr-new-business": 26000,
+      "mrr-expansion": 0,
+      "mrr-contraction": -6900,
+      "mrr-churn": 0,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-07-31",
+      "mrr": 153728,
+      "percentage-change": 0.0,
+      "mrr-new-business": 70479,
+      "mrr-expansion": 12793,
+      "mrr-contraction": -1544,
+      "mrr-churn": -3500,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-08-31",
+      "mrr": 160479,
+      "percentage-change": 0.0,
+      "mrr-new-business": 0,
+      "mrr-expansion": 6751,
+      "mrr-contraction": 0,
+      "mrr-churn": 0,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-09-30",
+      "mrr": 190652,
+      "percentage-change": 0.0,
+      "mrr-new-business": 24797,
+      "mrr-expansion": 9897,
+      "mrr-contraction": -2021,
+      "mrr-churn": -2500,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-10-31",
+      "mrr": 318576,
+      "percentage-change": 0.0,
+      "mrr-new-business": 138400,
+      "mrr-expansion": 4371,
+      "mrr-contraction": -147,
+      "mrr-churn": -14700,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-11-30",
+      "mrr": 367665,
+      "percentage-change": 0.0,
+      "mrr-new-business": 74879,
+      "mrr-expansion": 37,
+      "mrr-contraction": -16909,
+      "mrr-churn": -8918,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2024-12-31",
+      "mrr": 379376,
+      "percentage-change": 0.0,
+      "mrr-new-business": 43320,
+      "mrr-expansion": 0,
+      "mrr-contraction": -4900,
+      "mrr-churn": -26709,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2025-01-31",
+      "mrr": 427550,
+      "percentage-change": 0.0,
+      "mrr-new-business": 28259,
+      "mrr-expansion": 34076,
+      "mrr-contraction": 0,
+      "mrr-churn": -14161,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2025-02-28",
+      "mrr": 512797,
+      "percentage-change": 0.0,
+      "mrr-new-business": 91617,
+      "mrr-expansion": 2450,
+      "mrr-contraction": 0,
+      "mrr-churn": -8820,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2025-03-31",
+      "mrr": 787101,
+      "percentage-change": 0.0,
+      "mrr-new-business": 247134,
+      "mrr-expansion": 65488,
+      "mrr-contraction": -5929,
+      "mrr-churn": -38189,
+      "mrr-reactivation": 5800
+    },
+    {
+      "date": "2025-04-30",
+      "mrr": 937571,
+      "percentage-change": 0.0,
+      "mrr-new-business": 69041,
+      "mrr-expansion": 133462,
+      "mrr-contraction": 0,
+      "mrr-churn": -52033,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2025-05-31",
+      "mrr": 1174508,
+      "percentage-change": 0.0,
+      "mrr-new-business": 223445,
+      "mrr-expansion": 50026,
+      "mrr-contraction": -3,
+      "mrr-churn": -36531,
+      "mrr-reactivation": 0
+    },
+    {
+      "date": "2025-06-30",
+      "mrr": 1543002,
+      "percentage-change": 0.0,
+      "mrr-new-business": 354716,
+      "mrr-expansion": 24308,
+      "mrr-contraction": -17284,
+      "mrr-churn": -53606,
+      "mrr-reactivation": 60360
+    },
+    {
+      "date": "2025-07-31",
+      "mrr": 1475475,
+      "percentage-change": 0.0,
+      "mrr-new-business": 130711,
+      "mrr-expansion": 4903,
+      "mrr-contraction": -30301,
+      "mrr-churn": -170439,
+      "mrr-reactivation": 0
+    }
+  ]
+}
