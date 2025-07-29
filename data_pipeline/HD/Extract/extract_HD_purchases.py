@@ -1,10 +1,10 @@
 # ================================================================
-# 📌 HOLDED PURCHASES EXTRACT SCRIPT – FINAL VERSION
+# 📌 HOLDED PURCHASES EXTRACT SCRIPT – FINAL VERSION (SECRETS READY)
 # ================================================================
 # Extracts Holded purchase documents using pagination and date filtering.
 # Saves raw JSON to disk for transformation.
 #
-# 🔹 INPUT:  None (calls Holded API with .env key)
+# 🔹 INPUT:  None (calls Holded API with .env key or GitHub Secrets)
 # 🔹 OUTPUT: data/INPUT/holded_purchases/raw/holded_purchases_raw.json
 # ================================================================
 
@@ -12,7 +12,6 @@ import os
 import json
 import logging
 import requests
-import pandas as pd
 from dotenv import load_dotenv
 from datetime import datetime
 
@@ -28,17 +27,25 @@ logging.basicConfig(
 )
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key() -> str:
+    if os.path.exists(".env"):
+        load_dotenv()
+    api_key = os.getenv("HOLDED_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing HOLDED_API_KEY (check .env or GitHub Secrets).")
+        raise ValueError("HOLDED_API_KEY not found.")
+    return api_key
+
+# ============================================
 # 🚀 MAIN FUNCTION
 # ============================================
 
 def fetch_holded_purchases(start_date="2024-01-01", end_date=None):
     try:
-        # ✅ Load API key
-        load_dotenv()
-        api_key = os.getenv("HOLDED_API_KEY", "").strip()
-        if not api_key:
-            logging.error("❌ Missing HOLDED_API_KEY in .env")
-            raise ValueError("API key is missing")
+        api_key = load_api_key()
 
         if end_date is None:
             end_date = datetime.today().strftime("%Y-%m-%d")
@@ -71,6 +78,10 @@ def fetch_holded_purchases(start_date="2024-01-01", end_date=None):
             all_data.extend(data)
             page += 1
 
+        if not all_data:
+            logging.warning("⚠️ No purchase data returned from Holded.")
+            return
+
         # ✅ Create output folder
         raw_dir = "data/INPUT/holded_purchases/raw"
         os.makedirs(raw_dir, exist_ok=True)
@@ -80,6 +91,7 @@ def fetch_holded_purchases(start_date="2024-01-01", end_date=None):
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(all_data, f, indent=2)
         logging.info(f"✅ Raw JSON saved to {json_path}")
+        logging.info(f"✅ Total purchases extracted: {len(all_data)}")
 
     except requests.exceptions.RequestException as e:
         logging.error(f"❌ API request failed: {e}")
@@ -88,7 +100,7 @@ def fetch_holded_purchases(start_date="2024-01-01", end_date=None):
         raise
 
     except Exception as e:
-        logging.error(f"❌ Unexpected error in purchases extract: {e}")
+        logging.error(f"❌ Unexpected error in purchases extract: {e}", exc_info=True)
         raise
 
 # ============================================
@@ -97,3 +109,4 @@ def fetch_holded_purchases(start_date="2024-01-01", end_date=None):
 
 if __name__ == "__main__":
     fetch_holded_purchases()
+

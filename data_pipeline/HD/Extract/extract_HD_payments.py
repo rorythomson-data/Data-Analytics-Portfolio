@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 HOLDED PAYMENTS EXTRACT SCRIPT – FINAL VERSION
+# 📌 HOLDED PAYMENTS EXTRACT SCRIPT – FINAL VERSION (SECRETS READY)
 # ================================================================
 # This script extracts Holded payments via API with pagination and
 # date filtering. Saves raw JSON in standard ETL format.
@@ -12,7 +12,7 @@
 #     - data/INPUT/holded_payments/raw/holded_payments_raw.json
 #
 # 🔹 Features:
-#     - Secure API key from .env
+#     - Secure API key from .env or GitHub Actions Secrets
 #     - Pagination + timestamp filtering
 #     - Standard ETL output layout
 # ================================================================
@@ -21,7 +21,6 @@ import os
 import json
 import logging
 import requests
-import pandas as pd
 from dotenv import load_dotenv
 from datetime import datetime
 
@@ -37,17 +36,25 @@ logging.basicConfig(
 )
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key() -> str:
+    if os.path.exists(".env"):
+        load_dotenv()
+    api_key = os.getenv("HOLDED_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing HOLDED_API_KEY (check .env or GitHub Secrets).")
+        raise ValueError("HOLDED_API_KEY not found.")
+    return api_key
+
+# ============================================
 # 🚀 MAIN FUNCTION
 # ============================================
 
 def fetch_holded_payments(start_date="2024-01-01", end_date=None):
     try:
-        # ✅ Load API key
-        load_dotenv()
-        api_key = os.getenv("HOLDED_API_KEY", "").strip()
-        if not api_key:
-            logging.error("❌ Missing HOLDED_API_KEY in .env")
-            raise ValueError("API key is missing.")
+        api_key = load_api_key()
 
         if end_date is None:
             end_date = datetime.today().strftime("%Y-%m-%d")
@@ -94,6 +101,8 @@ def fetch_holded_payments(start_date="2024-01-01", end_date=None):
             json.dump(all_data, f, indent=2)
         logging.info(f"✅ Raw JSON saved to {json_path}")
 
+        logging.info(f"✅ Total payments extracted: {len(all_data)}")
+
     except requests.exceptions.RequestException as e:
         logging.error(f"❌ API request failed: {e}")
         if hasattr(e, 'response') and e.response is not None:
@@ -110,3 +119,4 @@ def fetch_holded_payments(start_date="2024-01-01", end_date=None):
 
 if __name__ == "__main__":
     fetch_holded_payments()
+

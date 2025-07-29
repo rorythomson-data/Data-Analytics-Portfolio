@@ -11,7 +11,7 @@
 #     • Parquet → data/INPUT/chartmogul_metrics/clean/chartmogul_metrics_raw.parquet
 #
 # 🔹 Features:
-#     • Secure API access from .env
+#     • Secure API access from .env or GitHub Secrets
 #     • Full month-by-month history
 #     • Robust logging and fallback handling
 # ================================================================
@@ -47,18 +47,28 @@ def month_range(start_date, end_date):
         current = next_month
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key():
+    # Load .env only if running locally
+    if os.path.exists(".env"):
+        load_dotenv()
+
+    api_key = os.getenv("CHARTMOGUL_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing CHARTMOGUL_API_KEY in environment variables.")
+        raise ValueError("API key missing. Set CHARTMOGUL_API_KEY in .env or GitHub Secrets.")
+    return api_key
+
+# ============================================
 # 🚀 MAIN EXTRACTION FUNCTION
 # ============================================
 
 def fetch_chartmogul_metrics():
     try:
-        # ✅ Load API key from .env
-        load_dotenv()
-        api_key = os.getenv("CHARTMOGUL_API_KEY", "").strip()
-
-        if not api_key:
-            logging.error("❌ Missing CHARTMOGUL_API_KEY in .env file.")
-            return
+        # ✅ Load API key
+        api_key = load_api_key()
 
         # ✅ Configuration
         base_url = "https://api.chartmogul.com/v1/metrics/all"
@@ -127,3 +137,4 @@ def fetch_chartmogul_metrics():
 
 if __name__ == "__main__":
     fetch_chartmogul_metrics()
+

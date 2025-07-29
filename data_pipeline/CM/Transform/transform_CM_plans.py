@@ -1,5 +1,5 @@
 # ===========================================================
-# 📌 CHARTMOGUL PLANS TRANSFORM SCRIPT – FINAL VERSION (FIXED)
+# 📌 CHARTMOGUL PLANS TRANSFORM SCRIPT 
 # ===========================================================
 # This script transforms raw ChartMogul subscription plan data into a structured format.
 # It is part of a modular, production-ready ETL pipeline used in SaaS analytics.
@@ -22,6 +22,7 @@ import os
 import json
 import pandas as pd
 import logging
+import sys
 
 # ============================================
 # 🪵 LOGGING SETUP
@@ -38,16 +39,20 @@ logging.basicConfig(
 # ============================================
 
 def transform_chartmogul_plans():
+    print("🚩 Starting transform_chartmogul_plans()")
     try:
         input_path = "data/INPUT/chartmogul_plans/raw/chartmogul_plans_raw.json"
         output_dir = "data/INPUT/chartmogul_plans/clean"
         base_filename = "chartmogul_plans_clean"
 
         if not os.path.exists(input_path):
-            logging.error("❌ Raw ChartMogul plans JSON file not found.")
-            return
+            msg = "❌ Raw ChartMogul plans JSON file not found."
+            logging.error(msg)
+            print(msg)
+            sys.exit(1)
 
         # ✅ Load raw JSON
+        print(f"📥 Loading raw data from {input_path}")
         with open(input_path, "r", encoding="utf-8") as f:
             raw_data = json.load(f)
 
@@ -55,7 +60,9 @@ def transform_chartmogul_plans():
         df = pd.json_normalize(plans)
 
         if df.empty:
-            logging.warning("⚠️ Plans data is empty after normalization.")
+            msg = "⚠️ Plans data is empty after normalization."
+            logging.warning(msg)
+            print(msg)
             return
 
         os.makedirs(output_dir, exist_ok=True)
@@ -64,14 +71,21 @@ def transform_chartmogul_plans():
         parquet_path = os.path.join(output_dir, base_filename + ".parquet")
         df.to_parquet(parquet_path, index=False)
         logging.info(f"✅ Saved Parquet to {parquet_path}")
+        print(f"✅ Saved Parquet to {parquet_path}")
 
         # ✅ Save to CSV
         csv_path = os.path.join(output_dir, base_filename + ".csv")
         df.to_csv(csv_path, index=False)
         logging.info(f"✅ Saved CSV to {csv_path}")
+        print(f"✅ Saved CSV to {csv_path}")
+
+        logging.info(f"✅ ChartMogul plans transformation completed: {len(df)} rows processed.")
+        print(f"✅ ChartMogul plans transformation completed: {len(df)} rows processed.")
 
     except Exception as e:
-        logging.error(f"❌ Failed to transform ChartMogul plans data: {e}")
+        logging.error(f"❌ Failed to transform ChartMogul plans data: {e}", exc_info=True)
+        print(f"❌ Failed to transform ChartMogul plans data: {e}")
+        sys.exit(1)
 
 # ============================================
 # 🟢 ENTRY POINT

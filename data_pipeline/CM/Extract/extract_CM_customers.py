@@ -9,7 +9,7 @@
 #     - JSON → data/INPUT/chartmogul_customers/raw/chartmogul_customers_raw.json
 #
 # 🔹 Features:
-#     - Secure API access with .env
+#     - Secure API access with .env or GitHub Actions secrets
 #     - Consistent logging
 #     - Structured output
 # ================================================================
@@ -46,11 +46,14 @@ logging.basicConfig(
 # ============================================
 
 def load_api_key():
-    load_dotenv()
+    # Load .env file if it exists (local development)
+    if os.path.exists(".env"):
+        load_dotenv()
+
     api_key = os.getenv("CHARTMOGUL_API_KEY")
     if not api_key:
-        logging.error("❌ Missing CHARTMOGUL_API_KEY in .env")
-        raise ValueError("API key missing")
+        logging.error("❌ Missing CHARTMOGUL_API_KEY in environment variables.")
+        raise ValueError("API key missing. Ensure CHARTMOGUL_API_KEY is set in .env or GitHub Secrets.")
     return api_key
 
 # ============================================
@@ -94,3 +97,4 @@ def run_extract_pipeline():
 
 if __name__ == "__main__":
     run_extract_pipeline()
+

@@ -12,7 +12,7 @@
 #         • chartmogul_mrr_components_raw.json
 #
 # 🔹 Features:
-#     - Uses API key from .env (CHARTMOGUL_API_KEY)
+#     - Uses API key from .env (CHARTMOGUL_API_KEY) or GitHub Secrets
 #     - Logs all actions to logs/pipeline.log
 #     - Deduplicates entries by 'date' field
 # ================================================================
@@ -51,6 +51,21 @@ def month_range(start_date: date, end_date: date):
         current = next_month
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key():
+    # Load .env only when running locally
+    if os.path.exists(".env"):
+        load_dotenv()
+
+    api_key = os.getenv("CHARTMOGUL_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing CHARTMOGUL_API_KEY in environment variables.")
+        raise ValueError("API key missing. Set CHARTMOGUL_API_KEY in .env or GitHub Secrets.")
+    return api_key
+
+# ============================================
 # 📤 API REQUEST FOR SINGLE MONTH
 # ============================================
 
@@ -78,12 +93,7 @@ def fetch_monthly_data(start: date, end: date, api_key: str):
 
 def fetch_chartmogul_mrr_components():
     logging.info("🚀 Starting ChartMogul MRR components extract")
-    load_dotenv()
-    api_key = os.getenv("CHARTMOGUL_API_KEY")
-
-    if not api_key:
-        logging.error("❌ Missing CHARTMOGUL_API_KEY in .env file.")
-        return
+    api_key = load_api_key()
 
     start_date = date(2024, 3, 1)
     end_date = date.today()
@@ -123,3 +133,4 @@ def fetch_chartmogul_mrr_components():
 
 if __name__ == "__main__":
     fetch_chartmogul_mrr_components()
+

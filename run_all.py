@@ -1,12 +1,16 @@
 import subprocess
 import logging
 import os
+import sys
 import time
 from datetime import datetime
 
 # ------------------- CONFIG -------------------
 API_SCRIPT = "run_api_scripts.py"
 METRICS_SCRIPT = "metrics_pipeline.py"
+
+# ------------------- DEBUG: SHOW PYTHON INTERPRETER -------------------
+print(f"🔍 Using Python interpreter: {sys.executable}")
 
 # ------------------- LOGGING -------------------
 LOG_DIR = "logs"
@@ -32,11 +36,11 @@ def run_script(script_name):
 
     try:
         result = subprocess.run(
-            ["python", script_name],
+            [sys.executable, script_name],  # Ensures we use the same interpreter
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"  # prevents UnicodeDecodeError
+            errors="replace"
         )
         elapsed = round(time.time() - start_time, 2)
         if result.returncode == 0:
@@ -88,4 +92,3 @@ def run_pipeline():
 # ------------------- MAIN -------------------
 if __name__ == "__main__":
     run_pipeline()
-

@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 CHARTMOGUL CUSTOMERS TRANSFORM SCRIPT – FINAL VERSION
+# 📌 CHARTMOGUL CUSTOMERS TRANSFORM SCRIPT
 # ================================================================
 # Transforms ChartMogul customer data into a clean tabular format.
 # INPUT:  data/INPUT/chartmogul_customers/raw/chartmogul_customers_raw.json
@@ -11,6 +11,7 @@ import os
 import json
 import logging
 import pandas as pd
+import sys
 
 # ============================================
 # 🪵 LOGGING SETUP
@@ -34,7 +35,7 @@ def transform_chartmogul_customers():
         base_filename = "chartmogul_customers_clean"
         os.makedirs(output_dir, exist_ok=True)
 
-        # ✅ Load raw JSON
+        print(f"📥 Reading raw JSON from {input_path}")
         with open(input_path, "r", encoding="utf-8") as f:
             raw_data = json.load(f)
 
@@ -43,7 +44,9 @@ def transform_chartmogul_customers():
         df = pd.json_normalize(customers)
 
         if df.empty:
-            logging.warning("⚠️ Empty ChartMogul customer data.")
+            msg = "⚠️ Empty ChartMogul customer data."
+            logging.warning(msg)
+            print(msg)
             return
 
         # ✅ Parse timestamp fields if present
@@ -81,11 +84,13 @@ def transform_chartmogul_customers():
         df.to_csv(csv_path, index=False)
         logging.info(f"✅ CSV saved to: {csv_path}")
 
+        print(f"✅ Cleaned data saved:\n  - {csv_path}\n  - {parquet_path}")
         logging.info(f"✅ Total cleaned ChartMogul customers: {len(df)}")
 
     except Exception as e:
         logging.error(f"❌ Error transforming ChartMogul customers: {e}", exc_info=True)
-        exit(1)
+        print(f"❌ Error transforming ChartMogul customers: {e}")
+        sys.exit(1)
 
 # ============================================
 # 🟢 ENTRY POINT

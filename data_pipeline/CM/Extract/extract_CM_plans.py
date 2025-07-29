@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 CHARTMOGUL PLANS EXTRACT SCRIPT – FINAL VERSION (FIXED)
+# 📌 CHARTMOGUL PLANS EXTRACT SCRIPT – FINAL VERSION (SECRETS READY)
 # ================================================================
 # Extracts plan data from ChartMogul's API.
 # Part of the SaaS business intelligence pipeline for tracking pricing strategy and product tiers.
@@ -12,7 +12,7 @@
 #
 # 🔹 Design Principles:
 #     - Extract-only: no CSV/Parquet generation here
-#     - .env API key loading
+#     - Supports both .env (local) and GitHub Secrets
 #     - Structured logging
 #     - Compatible with downstream transform scripts
 # ================================================================
@@ -39,10 +39,12 @@ logging.basicConfig(
 # ============================================
 
 def load_api_key() -> str:
-    load_dotenv()
-    api_key = os.getenv("CHARTMOGUL_API_KEY")
+    if os.path.exists(".env"):
+        load_dotenv()
+
+    api_key = os.getenv("CHARTMOGUL_API_KEY", "").strip()
     if not api_key:
-        logging.error("❌ Missing CHARTMOGUL_API_KEY in .env")
+        logging.error("❌ Missing CHARTMOGUL_API_KEY (check .env or GitHub Secrets).")
         raise ValueError("Missing ChartMogul API key.")
     return api_key
 
@@ -91,3 +93,4 @@ def run_extract_pipeline():
 
 if __name__ == "__main__":
     run_extract_pipeline()
+

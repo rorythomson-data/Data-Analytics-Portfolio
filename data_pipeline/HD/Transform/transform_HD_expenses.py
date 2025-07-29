@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 HOLDED EXPENSES TRANSFORM SCRIPT – FINAL VERSION
+# 📌 HOLDED EXPENSES TRANSFORM SCRIPT
 # ================================================================
 # This script loads the raw Holded expenses JSON, normalizes it
 # into tabular format, handles list-type and fragile fields, and
@@ -24,6 +24,7 @@ import os
 import json
 import logging
 import pandas as pd
+import sys
 
 # ============================================
 # 🪵 LOGGING SETUP
@@ -41,6 +42,7 @@ logging.basicConfig(
 # ============================================
 
 def transform_holded_expenses():
+    print("🚩 Starting transform_holded_expenses()")
     logging.info("🚩 Entered transform_holded_expenses()")
     
     try:
@@ -50,6 +52,7 @@ def transform_holded_expenses():
         os.makedirs(output_dir, exist_ok=True)
 
         # ✅ Load raw JSON
+        print(f"📥 Loading raw data from {input_path}")
         with open(input_path, "r", encoding="utf-8") as f:
             raw_data = json.load(f)
 
@@ -57,13 +60,16 @@ def transform_holded_expenses():
         df = pd.json_normalize(records)
 
         if df.empty:
-            logging.warning("⚠️ Empty Holded expenses data.")
+            msg = "⚠️ Empty Holded expenses data."
+            logging.warning(msg)
+            print(msg)
             return
 
         # ✅ Detect and stringify list-type columns
         list_columns = [col for col in df.columns if df[col].apply(lambda x: isinstance(x, list)).any()]
         if list_columns:
             logging.warning(f"⚠️ List-type columns in Holded expenses: {list_columns}")
+            print(f"⚠️ List-type columns in Holded expenses: {list_columns}")
             for col in list_columns:
                 df[col] = df[col].apply(lambda x: str(x) if isinstance(x, list) else x)
 
@@ -76,17 +82,21 @@ def transform_holded_expenses():
         csv_path = os.path.join(output_dir, base_filename + ".csv")
         df.to_csv(csv_path, index=False, encoding="utf-8")
         logging.info(f"✅ CSV saved to: {csv_path}")
+        print(f"✅ CSV saved to: {csv_path}")
 
         # ✅ Save to Parquet
         parquet_path = os.path.join(output_dir, base_filename + ".parquet")
         df.to_parquet(parquet_path, index=False)
         logging.info(f"✅ Parquet saved to: {parquet_path}")
+        print(f"✅ Parquet saved to: {parquet_path}")
 
         logging.info(f"✅ Total cleaned Holded expenses: {len(df)}")
+        print(f"✅ Total cleaned Holded expenses: {len(df)}")
 
     except Exception as e:
         logging.error(f"❌ Error transforming Holded expenses: {e}", exc_info=True)
-        raise
+        print(f"❌ Error transforming Holded expenses: {e}")
+        sys.exit(1)
 
 # ============================================
 # 🟢 ENTRY POINT

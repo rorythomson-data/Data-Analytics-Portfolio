@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 HOLDED INVOICES EXTRACT SCRIPT – FINAL VERSION
+# 📌 HOLDED INVOICES EXTRACT SCRIPT – FINAL VERSION (SECRETS READY)
 # ================================================================
 # This script extracts invoice data from the Holded API using
 # pagination and date filtering. It saves raw output to JSON, CSV,
@@ -39,6 +39,19 @@ logging.basicConfig(
 )
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key() -> str:
+    if os.path.exists(".env"):
+        load_dotenv()
+    api_key = os.getenv("HOLDED_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing HOLDED_API_KEY (check .env or GitHub Secrets).")
+        raise ValueError("HOLDED_API_KEY not found.")
+    return api_key
+
+# ============================================
 # 🚀 MAIN FUNCTION
 # ============================================
 
@@ -46,12 +59,7 @@ def fetch_holded_invoices(start_date="2024-01-01", end_date=None):
     logging.info("🚩 Entered fetch_holded_invoices()")
 
     try:
-        # ✅ Load API key
-        load_dotenv()
-        api_key = os.getenv("HOLDED_API_KEY", "").strip()
-        if not api_key:
-            logging.error("❌ Missing HOLDED_API_KEY in .env file.")
-            raise ValueError("API key is missing.")
+        api_key = load_api_key()
 
         # ✅ Define date range
         if end_date is None:
@@ -129,7 +137,7 @@ def fetch_holded_invoices(start_date="2024-01-01", end_date=None):
 
     except requests.exceptions.RequestException as e:
         logging.error(f"❌ API request failed: {e}")
-        if hasattr(e, 'response') and e.response is not None:
+        if e.response is not None:
             logging.error(f"🔴 API response content: {e.response.text}")
         raise
 
@@ -143,3 +151,4 @@ def fetch_holded_invoices(start_date="2024-01-01", end_date=None):
 
 if __name__ == "__main__":
     fetch_holded_invoices()
+

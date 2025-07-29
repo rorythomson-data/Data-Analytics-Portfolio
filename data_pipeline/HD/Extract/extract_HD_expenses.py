@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 HOLDED EXPENSE ACCOUNTS EXTRACT SCRIPT – FINAL VERSION
+# 📌 HOLDED EXPENSE ACCOUNTS EXTRACT SCRIPT – FINAL VERSION (SECRETS READY)
 # ================================================================
 # This script extracts expense account data from the Holded API
 # and saves the raw API response as JSON in the correct folder.
@@ -11,7 +11,7 @@
 #     - data/INPUT/holded_expenses/raw/holded_expenses_raw.json
 #
 # 🔹 Features:
-#     - Uses .env for API key (secure)
+#     - Uses .env or GitHub Secrets for API key (secure)
 #     - Validates response structure
 #     - Saves raw API data exactly as received (for auditing)
 #     - Logs success and failure events
@@ -35,17 +35,25 @@ logging.basicConfig(
 )
 
 # ============================================
+# 🔐 LOAD API KEY
+# ============================================
+
+def load_api_key() -> str:
+    if os.path.exists(".env"):
+        load_dotenv()
+    api_key = os.getenv("HOLDED_API_KEY", "").strip()
+    if not api_key:
+        logging.error("❌ Missing HOLDED_API_KEY (check .env or GitHub Secrets).")
+        raise ValueError("HOLDED_API_KEY not found.")
+    return api_key
+
+# ============================================
 # 🚀 MAIN FUNCTION
 # ============================================
 
 def fetch_holded_expenses():
     try:
-        # ✅ Load API key from .env
-        load_dotenv()
-        api_key = os.getenv("HOLDED_API_KEY", "").strip()
-        if not api_key:
-            logging.error("❌ Missing HOLDED_API_KEY in .env file.")
-            raise ValueError("API key is missing.")
+        api_key = load_api_key()
 
         # ✅ Prepare request
         url = "https://api.holded.com/api/invoicing/v1/expensesaccounts"
@@ -74,10 +82,9 @@ def fetch_holded_expenses():
 
     except requests.exceptions.RequestException as e:
         logging.error(f"❌ API request error: {e}")
-        if hasattr(e, 'response') and e.response is not None:
+        if e.response is not None:
             logging.error(f"🔴 API response: {e.response.text}")
         raise
-
     except Exception as e:
         logging.error(f"❌ Unexpected error in Holded expenses extract: {e}", exc_info=True)
         raise
@@ -88,3 +95,4 @@ def fetch_holded_expenses():
 
 if __name__ == "__main__":
     fetch_holded_expenses()
+
