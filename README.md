@@ -99,6 +99,15 @@ Puedes ver el estado de la última ejecución en el **badge** al inicio del READ
 
 ---
 
+Además de ejecutarse manualmente con `python run_all.py`, el pipeline ahora se ejecuta **automáticamente todos los días a las 02:00 UTC** gracias a GitHub Actions.
+
+Puedes descargar los resultados diarios (archivos en `data/OUTPUT/`) desde:
+- La pestaña **Actions** en el repositorio.
+- Seleccionando la ejecución más reciente del flujo de trabajo **Internship Dashboard Pipeline**.
+- Descargando el artefacto **pipeline-output**.
+
+---
+
 ## 📄 Guía de Entrega
 
 Para una referencia rápida sobre la configuración, ejecución del pipeline y visualización de resultados, consulta el documento:
