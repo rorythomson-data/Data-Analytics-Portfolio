@@ -114,10 +114,16 @@ def run_script(script):
         if result.returncode == 0:
             logging.info(f"✅ Success: {script} ({elapsed}s)")
             print(f"{GREEN}✅ Success: {script} ({elapsed}s){RESET}")
+            if result.stdout:
+                print(f"{YELLOW}--- STDOUT ---\n{result.stdout}{RESET}")
             results.append((script, "SUCCESS", elapsed))
         else:
             logging.error(f"❌ Failed: {script} — {result.stderr}")
             print(f"{RED}❌ Failed: {script} ({elapsed}s){RESET}")
+            if result.stdout:
+                print(f"{YELLOW}--- STDOUT ---\n{result.stdout}{RESET}")
+            if result.stderr:
+                print(f"{RED}--- STDERR ---\n{result.stderr}{RESET}")
             results.append((script, "FAILED", elapsed))
     except subprocess.CalledProcessError as e:
         elapsed = round(time.time() - start_time, 2)
