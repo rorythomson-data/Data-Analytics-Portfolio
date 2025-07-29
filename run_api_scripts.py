@@ -71,6 +71,18 @@ scripts = [
     "data_pipeline/HD/Transform/transform_HD_purchases.py",
 ]
 
+# ================================================================
+# ✅ REQUIRED OUTPUT FILES
+# ================================================================
+
+required_files = [
+    "data/INPUT/holded_invoices/clean/holded_invoices_clean.csv",
+    "data/INPUT/holded_payments/clean/holded_payments_clean.csv",
+    "data/INPUT/holded_contacts/clean/holded_contacts_clean.csv",
+    "data/INPUT/holded_expenses/clean/holded_expenses_clean.csv",
+    "data/INPUT/holded_purchases/clean/holded_purchases_clean.csv",
+]
+
 results = []
 
 # ================================================================
@@ -123,6 +135,24 @@ if __name__ == "__main__":
 
     for script in scripts:
         run_script(script)
+        # Stop early if a critical script fails
+        if results[-1][1] == "FAILED":
+            print(f"{RED}❌ Critical failure detected: {script}. Stopping pipeline.{RESET}")
+            sys.exit(1)
+
+    # Verify required files
+    print("\n🔍 Verifying required files...\n")
+    missing_files = []
+    for file_path in required_files:
+        if not os.path.exists(file_path):
+            missing_files.append(file_path)
+            print(f"{RED}❌ Missing file: {file_path}{RESET}")
+        else:
+            print(f"{GREEN}✅ Found: {file_path}{RESET}")
+
+    if missing_files:
+        logging.error("Some required files are missing. Pipeline cannot continue.")
+        sys.exit(1)
 
     # 📋 Console Summary
     print("\n📋 Summary:\n")
