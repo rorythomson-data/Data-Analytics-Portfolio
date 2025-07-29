@@ -1,4 +1,0 @@
-PIPELINE STATUS SUMMARY
-=======================
-run_api_scripts.py: SUCCESS (14.14s)
-metrics_pipeline.py: SUCCESS (0.62s)
