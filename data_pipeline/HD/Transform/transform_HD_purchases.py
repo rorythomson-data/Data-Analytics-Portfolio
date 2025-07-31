@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 HOLDED PURCHASES TRANSFORM SCRIPT – FINAL VERSION (Updated)
+# 📌 HOLDED PURCHASES TRANSFORM SCRIPT 
 # ================================================================
 # Transforms Holded purchases raw JSON into a clean tabular format.
 # INPUT:  data/INPUT/holded_purchases/raw/holded_purchases_raw.json
@@ -22,6 +22,21 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
+
+# ============================================
+# 💾 SAVE PARQUET WITH FALLBACK
+# ============================================
+
+def save_parquet(df, path):
+    """
+    Save DataFrame as Parquet, preferring pyarrow but falling back to fastparquet.
+    """
+    try:
+        df.to_parquet(path, index=False, engine="pyarrow")
+    except ImportError:
+        print("⚠️ pyarrow not found, falling back to fastparquet.")
+        logging.warning("pyarrow not found, falling back to fastparquet.")
+        df.to_parquet(path, index=False, engine="fastparquet")
 
 # ============================================
 # 🔧 TRANSFORMATION FUNCTION
@@ -80,9 +95,9 @@ def transform_holded_purchases():
             if col in df.columns:
                 df[col] = df[col].astype(str)
 
-        # ✅ Save Parquet
+        # ✅ Save Parquet (with fallback)
         parquet_path = os.path.join(output_dir, base_filename + ".parquet")
-        df.to_parquet(parquet_path, index=False)
+        save_parquet(df, parquet_path)
         logging.info(f"✅ Parquet saved to: {parquet_path}")
         print(f"✅ Parquet saved to: {parquet_path}")
 
@@ -106,6 +121,3 @@ def transform_holded_purchases():
 
 if __name__ == "__main__":
     transform_holded_purchases()
-
-
-

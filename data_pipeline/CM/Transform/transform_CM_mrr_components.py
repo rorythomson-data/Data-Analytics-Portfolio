@@ -36,6 +36,21 @@ logging.basicConfig(
 )
 
 # ============================================
+# 💾 SAVE PARQUET WITH FALLBACK
+# ============================================
+
+def save_parquet(df, path):
+    """
+    Save DataFrame as Parquet, preferring pyarrow but falling back to fastparquet.
+    """
+    try:
+        df.to_parquet(path, index=False, engine="pyarrow")
+    except ImportError:
+        print("⚠️ pyarrow not found, falling back to fastparquet.")
+        logging.warning("pyarrow not found, falling back to fastparquet.")
+        df.to_parquet(path, index=False, engine="fastparquet")
+
+# ============================================
 # 🚀 MAIN TRANSFORM FUNCTION
 # ============================================
 
@@ -82,9 +97,9 @@ def transform_chartmogul_mrr_components():
         # ✅ Ensure output folder exists
         os.makedirs(output_dir, exist_ok=True)
 
-        # ✅ Save Parquet
+        # ✅ Save Parquet with fallback
         parquet_path = os.path.join(output_dir, base_filename + ".parquet")
-        df.to_parquet(parquet_path, index=False)
+        save_parquet(df, parquet_path)
         logging.info(f"✅ Saved Parquet to {parquet_path}")
         print(f"✅ Saved Parquet to {parquet_path}")
 
