@@ -30,7 +30,7 @@ def validate_columns(df, required, df_name):
 # --------------------------------------------------------------------------
 #                   SUMMARY OF METRIC CREATION PROCESS:
 # --------------------------------------------------------------------------
-# 1. MRR - Monthly Recurring Revenue (mrr_cm)            * VALID: Taken directly from CM_Metrics
+# 1. MRR - Monthly Recurring Revenue (mrr)            * VALID: Taken directly from CM_Metrics
 #    ───────────────────────────────────
 #
 # * Formula:
@@ -47,7 +47,6 @@ def validate_columns(df, required, df_name):
 # * Calculation Steps:
 #     1. Extract month from 'date' column → 'month'
 #     2. Group by 'month' and sum 'mrr'
-#     3. Rename 'mrr' → 'mrr_cm' to reflect ChartMogul origin
 #
 # * Assumptions / Filters:
 #     - Assumes ChartMogul already filters for active subscriptions
@@ -56,7 +55,6 @@ def validate_columns(df, required, df_name):
 #     df_CM_mrr_components_clean
 #         └── Extract 'month' from 'date'
 #             └── Group by 'month' and sum 'mrr'
-#                 └── Rename to 'mrr_cm'
 #
 # * Notes for Verification:
 #     - Optionally cross-validate against df_CM_metrics_clean['mrr']
@@ -72,7 +70,7 @@ def calculate_mrr(df):
     Returns:
         pd.DataFrame: Monthly aggregated table containing:
             - 'month' (YYYY-MM)
-            - 'mrr_cm'
+            - 'mrr'
     """
 
     # ----------------------------------------------------------------------
@@ -91,14 +89,7 @@ def calculate_mrr(df):
     df_out = df_copy.groupby('month', as_index=False)['mrr'].sum()
 
     # ----------------------------------------------------------------------
-    # STEP 3: Rename output column for consistency
-    # ----------------------------------------------------------------------
-    # Renames 'mrr' to 'mrr_cm' to indicate that this metric comes
-    # directly from ChartMogul without internal transformation.
-    df_out.rename(columns={'mrr': 'mrr_cm'}, inplace=True)
-
-    # ----------------------------------------------------------------------
-    # STEP 4: Return the aggregated table
+    # STEP 3: Return the aggregated table
     # ----------------------------------------------------------------------
     return df_out
 
@@ -589,7 +580,7 @@ def calculate_arr(df_mrr_components):
     return monthly_mrr[['month', 'arr']]
 
 # --------------------------------------------------------------------------
-# 8. ARPA from Chartmogul (arpa_cm)            * VALID: Taken directly from CM_Metrics
+# 8. ARPA from Chartmogul           * VALID: Taken directly from CM_Metrics
 #    ─────────────────────────────────────
 #
 # * Formula:
@@ -671,7 +662,7 @@ def calculate_arpa(df_cm_metrics):
     # STEP 4: Select relevant columns and rename 'arpa' to 'arpa_cm'
     # ----------------------------------------------------------------------
     # Matches the naming convention used across the pipeline for ChartMogul ARPA.
-    df = df[['month', 'arpa']].rename(columns={'arpa': 'arpa_cm'})
+    df = df[['month', 'arpa']]
 
     # ----------------------------------------------------------------------
     # STEP 5: Return final DataFrame
@@ -683,7 +674,7 @@ def calculate_arpa(df_cm_metrics):
 #     ─────────────────────────────────────────────
 #
 # * Formula:
-#     customers_cm = total number of customers (monthly)
+#     customers = total number of customers (monthly)
 #
 # * Source Table(s) and Columns:
 #     - df_CM_metrics_clean:
@@ -693,7 +684,6 @@ def calculate_arpa(df_cm_metrics):
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
 #     2. Select 'customers' column
-#     3. Rename column to 'customers_cm'
 #
 # * Assumptions / Filters:
 #     - Assumes ChartMogul's customer counts are correct for the given month
@@ -702,10 +692,9 @@ def calculate_arpa(df_cm_metrics):
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
 #             └── Select 'customers'
-#                 └── Rename to 'customers_cm'
 # --------------------------------------------------------------------------
 
-def calculate_customers_cm(df_cm_metrics):
+def calculate_customers(df_cm_metrics):
     """
     Extract the number of customers per month as reported by ChartMogul.
 
@@ -719,7 +708,7 @@ def calculate_customers_cm(df_cm_metrics):
         pd.DataFrame:
             DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'customers_cm' (int)
+            - 'customers' (int)
     """
 
     # ----------------------------------------------------------------------
@@ -736,10 +725,10 @@ def calculate_customers_cm(df_cm_metrics):
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 3: Select and rename columns
+    # STEP 3: Select columns
     # ----------------------------------------------------------------------
-    # Keeps only the customer count per month with standardized naming
-    df = df[['month', 'customers']].rename(columns={'customers': 'customers_cm'})
+    # Keeps only the customer count per month 
+    df = df[['month', 'customers']]
 
     # ----------------------------------------------------------------------
     # STEP 4: Return final DataFrame
@@ -784,7 +773,7 @@ def calculate_customers_cm(df_cm_metrics):
 
 def calculate_customer_churn_rate(df_cm_metrics):
     """
-    Calculate the monthly Customer Churn Rate (customer_churn_rate_cm)
+    Calculate the monthly Customer Churn Rate (customer_churn_rate)
     as reported by ChartMogul.
 
     Customer Churn Rate is defined as:
@@ -803,7 +792,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
         pd.DataFrame:
             DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'customer_churn_rate_cm' (float)
+            - 'customer_churn_rate' (float)
     """
 
     # ----------------------------------------------------------------------
@@ -826,12 +815,9 @@ def calculate_customer_churn_rate(df_cm_metrics):
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 4: Select relevant columns and rename for consistency
+    # STEP 4: Select relevant columns
     # ----------------------------------------------------------------------
-    # Matches the naming convention for ChartMogul-calculated metrics
-    df = df[['month', 'customer-churn-rate']].rename(
-        columns={'customer-churn-rate': 'customer_churn_rate_cm'}
-    )
+    df = df[['month', 'customer-churn-rate']]
 
     # ----------------------------------------------------------------------
     # STEP 5: Return final DataFrame
@@ -873,7 +859,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
 
 def calculate_revenue_churn_rate(df_cm_metrics):
     """
-    Calculate the monthly Revenue Churn Rate (revenue_churn_rate_cm)
+    Calculate the monthly Revenue Churn Rate (revenue_churn_rate)
     as reported by ChartMogul.
 
     Revenue Churn Rate is defined as:
@@ -892,7 +878,7 @@ def calculate_revenue_churn_rate(df_cm_metrics):
         pd.DataFrame:
             DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'revenue_churn_rate_cm' (float)
+            - 'revenue_churn_rate' (float)
     """
 
     # ----------------------------------------------------------------------
@@ -915,12 +901,9 @@ def calculate_revenue_churn_rate(df_cm_metrics):
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 4: Select relevant columns and rename for consistency
+    # STEP 4: Select relevant columns
     # ----------------------------------------------------------------------
-    # Matches the naming convention for ChartMogul-calculated metrics
-    df = df[['month', 'mrr-churn-rate']].rename(
-        columns={'mrr-churn-rate': 'revenue_churn_rate_cm'}
-    )
+    df = df[['month', 'mrr-churn-rate']]
 
     # ----------------------------------------------------------------------
     # STEP 5: Return final DataFrame
@@ -960,9 +943,9 @@ def calculate_revenue_churn_rate(df_cm_metrics):
 #                 └── Rename to 'ltv_cm'
 # --------------------------------------------------------------------------
 
-def calculate_ltv_cm(df_cm_metrics):
+def calculate_ltv(df_cm_metrics):
     """
-    Calculate the monthly Customer Lifetime Value (ltv_cm)
+    Calculate the monthly Customer Lifetime Value (ltv)
     as reported by ChartMogul.
 
     LTV is defined as:
@@ -981,7 +964,7 @@ def calculate_ltv_cm(df_cm_metrics):
         pd.DataFrame:
             DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'ltv_cm' (float)
+            - 'ltv' (float)
     """
 
     # ----------------------------------------------------------------------
@@ -1004,10 +987,9 @@ def calculate_ltv_cm(df_cm_metrics):
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 4: Select relevant columns and rename for consistency
+    # STEP 4: Select relevant columns 
     # ----------------------------------------------------------------------
-    # Matches the naming convention for ChartMogul-calculated metrics
-    df = df[['month', 'ltv']].rename(columns={'ltv': 'ltv_cm'})
+    df = df[['month', 'ltv']]
 
     # ----------------------------------------------------------------------
     # STEP 5: Return final DataFrame
@@ -1278,7 +1260,7 @@ def calculate_cac_ltv_ratio(df_ltv, df_cac):
     # Outer join ensures months present in either table are preserved.
     # Missing values are filled with 0 for both LTV and CAC.
     df = pd.merge(
-        df_ltv[['month', 'ltv_cm']],
+        df_ltv[['month', 'ltv']],
         df_cac[['month', 'cac']],
         on='month',
         how='outer'
@@ -1290,7 +1272,7 @@ def calculate_cac_ltv_ratio(df_ltv, df_cac):
     # If CAC > 0, divide LTV by CAC.
     # If CAC == 0, set ratio to 0 to avoid division-by-zero errors.
     df['cac_ltv_ratio'] = df.apply(
-        lambda row: row['ltv_cm'] / row['cac'] if row['cac'] > 0 else 0,
+        lambda row: row['ltv'] / row['cac'] if row['cac'] > 0 else 0,
         axis=1
     )
 
@@ -1742,7 +1724,7 @@ def calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs):
     # ----------------------------------------------------------------------
     # Subtract total monthly expenses (opex + cogs + financial costs)
     # from the monthly recurring revenue (mrr).
-    df['ebitda'] = df['mrr_cm'] - (df['opex'] + df['cogs'] + df['financial_costs'])
+    df['ebitda'] = df['mrr'] - (df['opex'] + df['cogs'] + df['financial_costs'])
 
     # ----------------------------------------------------------------------
     # STEP 3: Return final DataFrame
@@ -1968,7 +1950,7 @@ def calculate_runway(df_burn_rate, cash_balance):
 def run_pipeline(cash_balance):
     debug("Loading input datasets...")
     df_customers = pd.read_csv('data/INPUT/chartmogul_customers/clean/chartmogul_customers_clean.csv')
-    df_invoices = pd.read_csv('data/INPUT/holded_invoices/clean/holded_invoices_clean.csv')
+    # df_invoices = pd.read_csv('data/INPUT/holded_invoices/clean/holded_invoices_clean.csv')
     df_purchases = pd.read_csv('data/INPUT/holded_purchases/clean/holded_purchases_clean.csv')
     df_contacts = pd.read_csv('data/INPUT/holded_contacts/clean/holded_contacts_clean.csv')
     df_mrr_components = pd.read_csv('data/INPUT/chartmogul_mrr_components/clean/chartmogul_mrr_components_clean.csv')
@@ -1986,12 +1968,12 @@ def run_pipeline(cash_balance):
     df_net_new_mrr = calculate_net_new_mrr(df_mrr_components)                   # 6
     df_arr = calculate_arr(df_mrr_components)                                   # 7
     df_arpa_cm = calculate_arpa(df_cm_metrics)                                  # 8
-    df_customers_cm = calculate_customers_cm(df_cm_metrics)                     # 9
+    df_customers_cm = calculate_customers(df_cm_metrics)                     # 9
     df_customer_churn_rate = calculate_customer_churn_rate(df_cm_metrics)       # 10
     df_revenue_churn_rate = calculate_revenue_churn_rate(df_cm_metrics)         # 11
-    df_ltv_cm = calculate_ltv_cm(df_cm_metrics)                                 # 12
+    df_ltv = calculate_ltv(df_cm_metrics)                                 # 12
     df_cac = calculate_cac(df_purchases, df_contacts, df_customers)             # 13
-    df_cac_ltv_ratio = calculate_cac_ltv_ratio(df_ltv_cm, df_cac)               # 14
+    df_cac_ltv_ratio = calculate_cac_ltv_ratio(df_ltv, df_cac)               # 14
     df_opex = calculate_opex(df_purchases, df_contacts)                         # 15
     df_cogs = calculate_cogs(df_purchases, df_contacts)                         # 16
     df_financial_costs = calculate_financial_costs(df_purchases, df_contacts)   # 17
@@ -2005,7 +1987,7 @@ def run_pipeline(cash_balance):
         df_net_new_mrr, df_arr,
         df_arpa_cm,
         df_customer_churn_rate, df_customers_cm, df_revenue_churn_rate,
-        df_ltv_cm, df_cac, df_cac_ltv_ratio,
+        df_ltv, df_cac, df_cac_ltv_ratio,
         df_opex, df_cogs, df_financial_costs,
         df_ebitda, df_burn_rate, df_runway
     ]
@@ -2024,12 +2006,13 @@ def run_pipeline(cash_balance):
     preferred_order = [
         'month', 'mrr', 'expansion_mrr', 'contraction_mrr', 'new_mrr', 'churned_mrr',
         'net_new_mrr', 'arr',
-        'arpa_cm', 'arpa_invoiced', 'arpa_paid',
-        'customers_cm', 'customer_churn_rate_cm', 'revenue_churn_rate_cm', 'ltv_cm',
+        'arpa',
+        'customers', 'customer_churn_rate', 'revenue_churn_rate', 'ltv',
         'cac_costs', 'new_customers', 'cac', 'cac_ltv_ratio',
         'opex', 'cogs', 'financial_costs',
         'ebitda', 'burn_rate', 'runway'
     ]
+
     ordered_columns = [col for col in preferred_order if col in df_final.columns]
     df_final = df_final[ordered_columns]
 
@@ -2038,17 +2021,30 @@ def run_pipeline(cash_balance):
     output_dir = os.path.join("data", "OUTPUT", current_month)
     os.makedirs(output_dir, exist_ok=True)
 
+    # Paths for monthly versioned files
     csv_path = os.path.join(output_dir, f"final_metrics_{current_month}.csv")
     parquet_path = os.path.join(output_dir, f"final_metrics_{current_month}.parquet")
+
+    # Save monthly files
     df_final.to_csv(csv_path, index=False)
     save_parquet(df_final, parquet_path)
-
     debug(f"Metrics saved at {csv_path} and {parquet_path}")
 
+    # Save summary stats
     summary_stats = df_final.describe().round(2)
     summary_path = os.path.join(output_dir, f"summary_stats_{current_month}.csv")
     summary_stats.to_csv(summary_path)
     debug(f"Summary saved at {summary_path}")
+
+    # --- Save static "latest" version for Power BI or external use ---
+    latest_csv = os.path.join("data", "OUTPUT", "final_metrics_latest.csv")
+    latest_parquet = os.path.join("data", "OUTPUT", "final_metrics_latest.parquet")
+
+    # Overwrite static files with current month's data
+    df_final.to_csv(latest_csv, index=False)
+    save_parquet(df_final, latest_parquet)
+    debug(f"Static latest metrics saved at {latest_csv} and {latest_parquet}")
+
 
 
 # ------------------- Entry Point -------------------

@@ -325,21 +325,21 @@
     },
     {
       "date": "2025-08-31",
-      "mrr": 1566041,
+      "mrr": 1561141,
       "mrr-percentage-change": 0.0,
-      "arr": 18792492,
+      "arr": 18733692,
       "arr-percentage-change": 0.0,
-      "customer-churn-rate": 10.67,
+      "customer-churn-rate": 15.99,
       "customer-churn-rate-percentage-change": 0.0,
-      "mrr-churn-rate": 8.28,
+      "mrr-churn-rate": 9.65,
       "mrr-churn-rate-percentage-change": 0.0,
-      "ltv": 224946,
+      "ltv": 227008,
       "ltv-percentage-change": 0.0,
-      "customers": 82,
+      "customers": 81,
       "customers-percentage-change": 0.0,
       "asp": 9900,
       "asp-percentage-change": 0.0,
-      "arpa": 19098,
+      "arpa": 19273,
       "arpa-percentage-change": 0.0
     }
   ]

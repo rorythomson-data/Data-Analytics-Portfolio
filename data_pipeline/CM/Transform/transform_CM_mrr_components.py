@@ -87,12 +87,13 @@ def transform_chartmogul_mrr_components():
             print(msg)
             return
 
-        # Convert monetary values from cents to euros
-        for col in ['amount', 'amount_usd']:
-            if col in df.columns:
-                df[col] = df[col] / 100
-                print(f"Converted '{col}' from cents to euros.")
-                logging.info(f"Converted '{col}' from cents to euros.")
+        # Convert MRR values from cents to euros
+        mrr_cols = [col for col in df.columns if col.startswith("mrr")]
+        for col in mrr_cols:
+            df[col] = df[col] / 100
+            print(f"Converted '{col}' from cents to euros.")
+            logging.info(f"Converted '{col}' from cents to euros.")
+
 
         # Convert any list/dict columns to JSON strings
         complex_cols = [col for col in df.columns if df[col].apply(lambda x: isinstance(x, (list, dict))).any()]

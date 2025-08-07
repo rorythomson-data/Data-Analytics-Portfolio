@@ -172,12 +172,12 @@
     },
     {
       "date": "2025-08-31",
-      "mrr": 1566041,
+      "mrr": 1561141,
       "percentage-change": 0.0,
       "mrr-new-business": 9900,
       "mrr-expansion": 4900,
       "mrr-contraction": -1,
-      "mrr-churn": -34602,
+      "mrr-churn": -39502,
       "mrr-reactivation": 0
     }
   ]

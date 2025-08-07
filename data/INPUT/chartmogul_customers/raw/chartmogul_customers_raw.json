@@ -797,15 +797,15 @@
       "id": 177868725,
       "uuid": "cus_cd4dfccd-4a9d-4738-8535-b7b6ca29c9f9",
       "external_id": "19692152811",
-      "name": "Fever Labs Inc",
-      "email": "tools.invoices@feverup.com",
+      "name": "martin.blanchard@feverup.com",
+      "email": "martin.blanchard@feverup.com",
       "status": "Active",
       "customer-since": "2024-07-31T12:39:43+00:00",
       "attributes": {
         "custom": {},
         "stripe": {
-          "userId": "8NRp4H64iDfzoGDPbyU34KrqIRi1",
-          "companyId": "brpx4p8tro9b1nzljlgb456p"
+          "userId": "ww52RYvhy2Y6otNfreiz4tEpwdI3",
+          "companyId": "l6synihgjzwohiu10ui2hon8"
         },
         "hubspot": {
           "Company_owner": "1703147423",
@@ -827,6 +827,7 @@
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
@@ -836,6 +837,7 @@
         "cus_SoiieQVjcINdXx",
         "cus_S4FFGKA1CFX1up",
         "cus_SYdFllUZVWiTvM",
+        "cus_Sp8LnsxovcV23y",
         "cus_QZlLRRp3D5O3Vm"
       ],
       "company": "",
@@ -2132,15 +2134,15 @@
       "id": 190122982,
       "uuid": "cus_31f7dcb1-bb94-4c48-b257-1698aa076562",
       "external_id": "cus_R3LFrhBDHpI1ni",
-      "name": "marcos.macias@tendios.com",
-      "email": "marcos.macias@tendios.com",
+      "name": "sergi.salvat@tendios.com",
+      "email": "sergi.salvat@tendios.com",
       "status": "Active",
       "customer-since": "2024-12-11T09:59:00+00:00",
       "attributes": {
         "custom": {},
         "stripe": {
-          "userId": "AK1VBiKs3KUoBvUrnczwh0teRYI3",
-          "companyId": "kxo6yj4p96o17vinlyvwk5tn"
+          "userId": "KX8N845etBhJmJUZa5SRm0cKG6s1",
+          "companyId": "iizrrm0xmxkik2k5f2rlraiq"
         },
         "hubspot": {
           "Company_owner": "1287676883",
@@ -4699,7 +4701,7 @@
       "external_id": "266336166134",
       "name": "ITURRI S.A.",
       "email": "mlucas@iturri.com",
-      "status": "Past Due",
+      "status": "Cancelled",
       "customer-since": "2025-04-24T11:27:45+00:00",
       "attributes": {
         "custom": {},
@@ -4730,8 +4732,8 @@
         "city": "Sevilla",
         "address_zip": "41007"
       },
-      "mrr": 4900,
-      "arr": 58800,
+      "mrr": 0,
+      "arr": 0,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/266336166134",
       "chartmogul-url": "https://app.chartmogul.com/#/customers/225112051-Javier_Nuez_De_Arce_Brasseur",
       "billing-system-type": "HubSpot",
