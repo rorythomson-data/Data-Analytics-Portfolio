@@ -1,5 +1,594 @@
 [
   {
+    "id": "6891fdce1b36b730ba071093",
+    "contact": "67ae54f92082bee6bb02b284",
+    "contactName": "NUCLIO DIGITAL PLUS SL (NUCLIO DIGITAL PLUS SL)",
+    "desc": "Fra. 302 NUCLIO DIGITAL PLUS SL",
+    "date": 1754258400,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "hr",
+      "opex",
+      "vendor"
+    ],
+    "products": [
+      {
+        "name": "Fra. 302 NUCLIO DIGITAL PLUS SL",
+        "desc": "Fra. 302 NUCLIO DIGITAL PLUS SL",
+        "price": 1000,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "hr",
+          "opex",
+          "vendor"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "668572b91ef7394b7a07f1d9"
+      }
+    ],
+    "tax": 210,
+    "subtotal": 1000,
+    "discount": 0,
+    "total": 1210,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "302",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 1210,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a894e22e31233c0408b8",
+    "contact": "679aa945082f148e4508e16f",
+    "contactName": "Deeptrace Inc. (Deeptrace Inc.)",
+    "desc": "Fra. 25365C73-0005 Deeptrace Inc.",
+    "date": 1754172000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 25365C73-0005 Deeptrace Inc.",
+        "desc": "Fra. 25365C73-0005 Deeptrace Inc.",
+        "price": 431.8524999978364,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 431.85,
+    "discount": 0,
+    "total": 431.85,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "25365C73-0005",
+    "currency": "usd",
+    "currencyChange": 1.157802722,
+    "paymentsTotal": 0,
+    "paymentsPending": 431.85,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a90799966f7e0b0c6a1c",
+    "contact": "683581fcddc06c80f30910a7",
+    "contactName": "Norrsken Barcelona SL (Norrsken Barcelona SL)",
+    "desc": "Fra. INV-12947 Norrsken Barcelona SL",
+    "date": 1753999200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "hr",
+      "opex",
+      "vendor"
+    ],
+    "products": [
+      {
+        "name": "Fra. INV-12947 Norrsken Barcelona SL",
+        "desc": "Fra. INV-12947 Norrsken Barcelona SL",
+        "price": 53.72,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "hr",
+          "opex",
+          "vendor"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 11.28,
+    "subtotal": 53.72,
+    "discount": 0,
+    "total": 65,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "INV-12947",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 65,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a90988d3885344074bd5",
+    "contact": "683581fcddc06c80f30910a7",
+    "contactName": "Norrsken Barcelona SL (Norrsken Barcelona SL)",
+    "desc": "Fra. INV-13118 Norrsken Barcelona SL",
+    "date": 1753999200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "hr",
+      "opex",
+      "vendor"
+    ],
+    "products": [
+      {
+        "name": "Fra. INV-13118 Norrsken Barcelona SL",
+        "desc": "Fra. INV-13118 Norrsken Barcelona SL",
+        "price": 53.72,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "hr",
+          "opex",
+          "vendor"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 11.28,
+    "subtotal": 53.72,
+    "discount": 0,
+    "total": 65,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "INV-13118",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 65,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a94c1e54a56419080d25",
+    "contact": "67f2988c3b6254138a0fb4d6",
+    "contactName": "Opusclip Inc. (Opusclip Inc.)",
+    "desc": "Fra. 7C9411E8-0005 Opusclip Inc.",
+    "date": 1753999200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "mkg",
+      "opex",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 7C9411E8-0005 Opusclip Inc.",
+        "desc": "Fra. 7C9411E8-0005 Opusclip Inc.",
+        "price": 29,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "mkg",
+          "opex",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 29,
+    "discount": 0,
+    "total": 29,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "7C9411E8-0005",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 29,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890aa915dbb5418f20312d1",
+    "contact": "686f9d2da3972b9b98032aff",
+    "contactName": "CloudTalk S. \u0393. O. (CloudTalk S. \u0393. O.)",
+    "desc": "Fra. 25016227 CloudTalk S. \u0393. O.",
+    "date": 1753999200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cac",
+      "moneda",
+      "sale",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 25016227 CloudTalk S. \u0393. O.",
+        "desc": "Fra. 25016227 CloudTalk S. \u0393. O.",
+        "price": 39,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_adqintras_21"
+        ],
+        "tags": [
+          "cac",
+          "moneda",
+          "sale",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "668572ba1ef7394b7a07f1de"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 39,
+    "discount": 0,
+    "total": 39,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "25016227",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 39,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a8bf227bfae2a80ae9fb",
+    "contact": "67ae54f92082bee6bb02b284",
+    "contactName": "NUCLIO DIGITAL PLUS SL (NUCLIO DIGITAL PLUS SL)",
+    "desc": "Fra. 266 NUCLIO DIGITAL PLUS SL",
+    "date": 1753912800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "hr",
+      "opex",
+      "vendor"
+    ],
+    "products": [
+      {
+        "name": "Fra. 266 NUCLIO DIGITAL PLUS SL",
+        "desc": "Fra. 266 NUCLIO DIGITAL PLUS SL",
+        "price": 300,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "hr",
+          "opex",
+          "vendor"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "668572b91ef7394b7a07f1d9"
+      }
+    ],
+    "tax": 63,
+    "subtotal": 300,
+    "discount": 0,
+    "total": 363,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "266",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 363,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6890a940433518a02603e478",
+    "contact": "66a0ea99d6f58778f403e2e8",
+    "contactName": "Google Cloud EMEA Limited (Google Cloud EMEA Limited)",
+    "desc": "Fra. 5316300020 Google Cloud EMEA Limited",
+    "date": 1753912800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cogs",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 5316300020 Google Cloud EMEA Limited",
+        "desc": "Fra. 5316300020 Google Cloud EMEA Limited",
+        "price": 54.52,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_adqintras_21"
+        ],
+        "tags": [
+          "cogs",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 54.52,
+    "discount": 0,
+    "total": 54.52,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "5316300020",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 54.52,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6888754b98af6138b9088915",
+    "contact": "6694f5a3919746067d00ab14",
+    "contactName": "KOMBO SOLUTIONS, S.L (KOMBO SOLUTIONS, S.L)",
+    "desc": "Fra. n\u00ba: Proforma KOMBO SOLUTIONS, S.L",
+    "date": 1753740000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "opex",
+      "ops",
+      "staffing"
+    ],
+    "products": [
+      {
+        "name": "Fra. n\u00ba: Proforma KOMBO SOLUTIONS, S.L",
+        "desc": "Fra. n\u00ba: Proforma KOMBO SOLUTIONS, S.L",
+        "price": 2916.67,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "opex",
+          "ops",
+          "staffing"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "66a107fcafde0ca4240e0a40"
+      }
+    ],
+    "tax": 612.5,
+    "subtotal": 2916.67,
+    "discount": 0,
+    "total": 3529.17,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "n\u00ba: Proforma",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 3529.17,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688894ab2e7863f81f082412",
+    "contact": "67be15a371730ffc8e081860",
+    "contactName": "ZenLeads Inc. Apollo.io (ZenLeads Inc.)",
+    "desc": "Fra. YNFE2AMJ-0012 ZenLeads Inc. Apollo.io",
+    "date": 1753740000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. YNFE2AMJ-0012 ZenLeads Inc. Apollo.io",
+        "desc": "Fra. YNFE2AMJ-0012 ZenLeads Inc. Apollo.io",
+        "price": 35.8212213041044,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 35.82,
+    "discount": 0,
+    "total": 35.82,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "YNFE2AMJ-0012",
+    "currency": "usd",
+    "currencyChange": 1.158251966,
+    "paymentsTotal": 0,
+    "paymentsPending": 35.82,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6889ca63e0bee5b90b0df046",
+    "contact": "6694febb64ba6319900bcdcf",
+    "contactName": "FULL ENRICH (FULL ENRICH)",
+    "desc": "Fra. 1449FF9-0008 FULL ENRICH",
+    "date": 1753740000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cogs",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 1449FF9-0008 FULL ENRICH",
+        "desc": "Fra. 1449FF9-0008 FULL ENRICH",
+        "price": 370,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 370,
+    "discount": 0,
+    "total": 370,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "1449FF9-0008",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 370,
+    "paymentsRefunds": 0
+  },
+  {
     "id": "68879a1adaa2fae9720ca5cc",
     "contact": "6694faff0c3b83b17508c837",
     "contactName": "Ignacio Gaminde (Ignacio Gaminde)",
@@ -338,6 +927,61 @@
     "paymentsRefunds": 0
   },
   {
+    "id": "688a2d5201141e33600cd0bb",
+    "contact": "673245b7c31b77924705a339",
+    "contactName": "OpenAI, LLC (OpenAI, LLC)",
+    "desc": "Fra. 118F6C05-0070 OpenAI, LLC",
+    "date": 1753221600,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 118F6C05-0070 OpenAI, LLC",
+        "desc": "Fra. 118F6C05-0070 OpenAI, LLC",
+        "price": 82.26557036524444,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 82.27,
+    "discount": 0,
+    "total": 82.27,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "118F6C05-0070",
+    "currency": "usd",
+    "currencyChange": 1.155161261,
+    "paymentsTotal": 0,
+    "paymentsPending": 82.27,
+    "paymentsRefunds": 0
+  },
+  {
     "id": "687fa31496f9c9f27709c60f",
     "contact": "680903dad03f6ba5d90735ce",
     "contactName": "ChartMogul GmbH & Co. KG (ChartMogul GmbH & Co. KG)",
@@ -396,6 +1040,59 @@
     ],
     "paymentsTotal": 101.78,
     "paymentsPending": 0,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688a2f81f092f111a9090ca8",
+    "contact": "66a0e786e0411bfdd00ed692",
+    "contactName": "Capboard Tech SL (Capboard Tech SL)",
+    "desc": "Fra. 046DFC64-3170 Capboard Tech SL",
+    "date": 1753135200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "fin",
+      "opex",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 046DFC64-3170 Capboard Tech SL",
+        "desc": "Fra. 046DFC64-3170 Capboard Tech SL",
+        "price": 180,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "fin",
+          "opex",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 37.8,
+    "subtotal": 180,
+    "discount": 0,
+    "total": 217.8,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "046DFC64-3170",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 217.8,
     "paymentsRefunds": 0
   },
   {
@@ -1068,6 +1765,114 @@
     "paymentsRefunds": 0
   },
   {
+    "id": "688a2cd656a58b5a9702bcfa",
+    "contact": "68273d358a011e371c00e1d4",
+    "contactName": "HeyReach Inc O\u00dc (HeyReach Inc O\u00dc)",
+    "desc": "Fra. AE522E9A-54410 HeyReach Inc O\u00dc",
+    "date": 1752444000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. AE522E9A-54410 HeyReach Inc O\u00dc",
+        "desc": "Fra. AE522E9A-54410 HeyReach Inc O\u00dc",
+        "price": 393.27842383384774,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_adqintras_21"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 393.28,
+    "discount": 0,
+    "total": 393.28,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "AE522E9A-54410",
+    "currency": "usd",
+    "currencyChange": 1.155161261,
+    "paymentsTotal": 0,
+    "paymentsPending": 393.28,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688a2d3b11e92146ed008fe5",
+    "contact": "66a0e67a0420abbc440ebc50",
+    "contactName": "Figma, Inc. (Figma, Inc.)",
+    "desc": "Fra. 771B6BFE-0014 Figma, Inc.",
+    "date": 1752444000,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "opex",
+      "prod",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 771B6BFE-0014 Figma, Inc.",
+        "desc": "Fra. 771B6BFE-0014 Figma, Inc.",
+        "price": 20,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "opex",
+          "prod",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 20,
+    "discount": 0,
+    "total": 20,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "771B6BFE-0014",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 20,
+    "paymentsRefunds": 0
+  },
+  {
     "id": "68760c3e3e64f8369a0b131e",
     "contact": "672ca6594cc0add3080b6460",
     "contactName": "Kaspr SAS (Kaspr SAS)",
@@ -1249,6 +2054,61 @@
     "paymentsRefunds": 0
   },
   {
+    "id": "688a2ce790dafb68c205b323",
+    "contact": "673245b7c31b77924705a339",
+    "contactName": "OpenAI, LLC (OpenAI, LLC)",
+    "desc": "Fra. AD9D7630-0013 OpenAI, LLC",
+    "date": 1752184800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. AD9D7630-0013 OpenAI, LLC",
+        "desc": "Fra. AD9D7630-0013 OpenAI, LLC",
+        "price": 17.31359999268535,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 17.31,
+    "discount": 0,
+    "total": 17.31,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "AD9D7630-0013",
+    "currency": "usd",
+    "currencyChange": 1.155161261,
+    "paymentsTotal": 0,
+    "paymentsPending": 17.31,
+    "paymentsRefunds": 0
+  },
+  {
     "id": "6870b8cf93b086c11f04777f",
     "contact": "6694febb64ba6319900bcdcf",
     "contactName": "FULL ENRICH (FULL ENRICH)",
@@ -1299,6 +2159,61 @@
     ],
     "paymentsTotal": 370,
     "paymentsPending": 0,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688a2d592e5c9e19360eb95b",
+    "contact": "673245b7c31b77924705a339",
+    "contactName": "OpenAI, LLC (OpenAI, LLC)",
+    "desc": "Fra. 118F6C05-0069 OpenAI, LLC",
+    "date": 1752098400,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "cogs",
+      "moneda",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 118F6C05-0069 OpenAI, LLC",
+        "desc": "Fra. 118F6C05-0069 OpenAI, LLC",
+        "price": 82.24825676525177,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "cogs",
+          "moneda",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 82.25,
+    "discount": 0,
+    "total": 82.25,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "118F6C05-0069",
+    "currency": "usd",
+    "currencyChange": 1.155161261,
+    "paymentsTotal": 0,
+    "paymentsPending": 82.25,
     "paymentsRefunds": 0
   },
   {
@@ -1471,6 +2386,61 @@
     "paymentsRefunds": 0
   },
   {
+    "id": "688a2cccf39b290e790b655f",
+    "contact": "66a0e3d1ffbc408be803f5c9",
+    "contactName": "Notion Labs, Inc. (Notion Labs, Inc.)",
+    "desc": "Fra. BD5ECD01-0017 Notion Labs, Inc.",
+    "date": 1751407200,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": "",
+    "tags": [
+      "moneda",
+      "opex",
+      "prod",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. BD5ECD01-0017 Notion Labs, Inc.",
+        "desc": "Fra. BD5ECD01-0017 Notion Labs, Inc.",
+        "price": 51.940799978056056,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_invsuj"
+        ],
+        "tags": [
+          "moneda",
+          "opex",
+          "prod",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 51.94,
+    "discount": 0,
+    "total": 51.94,
+    "language": "",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "BD5ECD01-0017",
+    "currency": "usd",
+    "currencyChange": 1.155161261,
+    "paymentsTotal": 0,
+    "paymentsPending": 51.94,
+    "paymentsRefunds": 0
+  },
+  {
     "id": "6867bc4587b2b6c2920b14a3",
     "contact": "683581fcddc06c80f30910a7",
     "contactName": "Norrsken Barcelona SL (Norrsken Barcelona SL)",
@@ -1629,6 +2599,211 @@
     "currencyChange": 1.174126479,
     "paymentsTotal": 0,
     "paymentsPending": 304.91,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6889cbbf0d664808da0fd82b",
+    "contact": "6889cbb86fb46669080a8555",
+    "contactName": "Sergey Pribyl (Sergey Pribyl)",
+    "desc": "Fra. Private004-1 Sergey Pribyl",
+    "date": 1751320800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [],
+    "products": [
+      {
+        "name": "Fra. Private004-1 Sergey Pribyl",
+        "desc": "Fra. Private004-1 Sergey Pribyl",
+        "price": 627,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21",
+          "p_ret_15"
+        ],
+        "tags": [],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "668572ba1ef7394b7a07f1dd"
+      }
+    ],
+    "tax": 37.62,
+    "subtotal": 627,
+    "discount": 0,
+    "total": 664.62,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "Private004-1",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 664.62,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "6889cbfd06e4c2655208e51f",
+    "contact": "67a0d1b0f5200d2a3e04327c",
+    "contactName": "Distant Future SL (Distant Future SL)",
+    "desc": "Fra. 2025-693 Distant Future SL",
+    "date": 1751320800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cac",
+      "sale",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 2025-693 Distant Future SL",
+        "desc": "Fra. 2025-693 Distant Future SL",
+        "price": 81.37,
+        "units": 1,
+        "projectid": null,
+        "tax": 21,
+        "taxes": [
+          "p_iva_21"
+        ],
+        "tags": [
+          "cac",
+          "sale",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "668572ba1ef7394b7a07f1de"
+      }
+    ],
+    "tax": 17.09,
+    "subtotal": 81.37,
+    "discount": 0,
+    "total": 98.46000000000001,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "2025-693",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 98.46000000000001,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688a335462dbdda02207c084",
+    "contact": "66a0ea99d6f58778f403e2e8",
+    "contactName": "Google Cloud EMEA Limited (Google Cloud EMEA Limited)",
+    "desc": "Fra. 5295031097 Google Cloud EMEA Limited",
+    "date": 1751320800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cogs",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 5295031097 Google Cloud EMEA Limited",
+        "desc": "Fra. 5295031097 Google Cloud EMEA Limited",
+        "price": 44.62,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_adqintras_21"
+        ],
+        "tags": [
+          "cogs",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 44.62,
+    "discount": 0,
+    "total": 44.62,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "5295031097",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 44.62,
+    "paymentsRefunds": 0
+  },
+  {
+    "id": "688a3356964ea0bdd802d029",
+    "contact": "66a0ea99d6f58778f403e2e8",
+    "contactName": "Google Cloud EMEA Limited (Google Cloud EMEA Limited)",
+    "desc": "Fra. 5305947186 Google Cloud EMEA Limited",
+    "date": 1751320800,
+    "dueDate": null,
+    "multipledueDate": [],
+    "forecastDate": null,
+    "notes": null,
+    "tags": [
+      "cogs",
+      "tech",
+      "tool"
+    ],
+    "products": [
+      {
+        "name": "Fra. 5305947186 Google Cloud EMEA Limited",
+        "desc": "Fra. 5305947186 Google Cloud EMEA Limited",
+        "price": 164.71,
+        "units": 1,
+        "projectid": null,
+        "tax": -21,
+        "taxes": [
+          "p_iva_adqintras_21"
+        ],
+        "tags": [
+          "cogs",
+          "tech",
+          "tool"
+        ],
+        "discount": 0,
+        "retention": 0,
+        "weight": 0,
+        "costPrice": 0,
+        "sku": 0,
+        "account": "6694dc01140acf9e000425c2"
+      }
+    ],
+    "tax": 0,
+    "subtotal": 164.71,
+    "discount": 0,
+    "total": 164.71,
+    "language": "es",
+    "status": 0,
+    "customFields": [],
+    "docNumber": "5305947186",
+    "currency": "eur",
+    "currencyChange": 1,
+    "paymentsTotal": 0,
+    "paymentsPending": 164.71,
     "paymentsRefunds": 0
   },
   {

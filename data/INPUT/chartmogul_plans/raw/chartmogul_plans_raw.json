@@ -1,6 +1,14 @@
 {
   "plans": [
     {
+      "external_id": "price_1RqKnoRoTYKnwsE7bhOzMWHW",
+      "name": "(Copy) SILVER PLAN",
+      "interval_count": 1,
+      "uuid": "pl_3b702443-7646-4e0f-aadf-395ae5c525fa",
+      "interval_unit": "month",
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+    },
+    {
       "external_id": "price_1RoS8dRoTYKnwsE7M1zk0IKJ",
       "name": "SILVER PLAN",
       "interval_count": 1,

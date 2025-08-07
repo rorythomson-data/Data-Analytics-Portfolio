@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 CHARTMOGUL METRICS TRANSFORM SCRIPT
+# CHARTMOGUL METRICS TRANSFORM SCRIPT
 # ================================================================
 # This script transforms raw ChartMogul monthly metrics data into a
 # clean tabular format, preparing it for business intelligence pipelines.
@@ -25,7 +25,7 @@ import pandas as pd
 import sys
 
 # ============================================
-# 🪵 LOGGING SETUP
+# LOGGING SETUP
 # ============================================
 
 os.makedirs("logs", exist_ok=True)
@@ -36,7 +36,7 @@ logging.basicConfig(
 )
 
 # ============================================
-# 💾 SAVE PARQUET WITH FALLBACK
+# SAVE PARQUET WITH FALLBACK
 # ============================================
 
 def save_parquet(df, path):
@@ -46,17 +46,17 @@ def save_parquet(df, path):
     try:
         df.to_parquet(path, index=False, engine="pyarrow")
     except ImportError:
-        print("⚠️ pyarrow not found, falling back to fastparquet.")
+        print("pyarrow not found, falling back to fastparquet.")
         logging.warning("pyarrow not found, falling back to fastparquet.")
         df.to_parquet(path, index=False, engine="fastparquet")
 
 # ============================================
-# 🚀 MAIN TRANSFORM FUNCTION
+# MAIN TRANSFORM FUNCTION
 # ============================================
 
 def transform_chartmogul_metrics():
-    logging.info("🚩 Starting transform_chartmogul_metrics()")
-    print("🚩 Starting transform_chartmogul_metrics()")
+    logging.info("Starting transform_chartmogul_metrics()")
+    print("Starting transform_chartmogul_metrics()")
 
     try:
         input_path = "data/INPUT/chartmogul_metrics/raw/chartmogul_metrics_raw.json"
@@ -64,27 +64,34 @@ def transform_chartmogul_metrics():
         base_filename = "chartmogul_metrics_clean"
 
         if not os.path.exists(input_path):
-            msg = "❌ Raw ChartMogul metrics file not found."
+            msg = "Raw ChartMogul metrics file not found."
             logging.error(msg)
             print(msg)
             sys.exit(1)
 
-        # ✅ Load raw JSON data
-        print(f"📥 Reading raw data from {input_path}")
+        # Load raw JSON data
+        print(f"Reading raw data from {input_path}")
         with open(input_path, "r", encoding="utf-8") as f:
             raw_data = json.load(f)
 
         entries = raw_data.get("entries", [])
         if not entries:
-            msg = "⚠️ No entries found in ChartMogul metrics data."
+            msg = "No entries found in ChartMogul metrics data."
             logging.warning(msg)
             print(msg)
             return
 
         df = pd.DataFrame(entries)
 
+        # Convert monetary values from cents to euros
+        for col in ['mrr', 'arr', 'asp', 'arpa', 'ltv', 'customer_churn_rate', 'revenue_churn_rate']:
+            if col in df.columns:
+                df[col] = df[col] / 100
+                print(f"Converted '{col}' from cents to euros.")
+                logging.info(f"Converted '{col}' from cents to euros.")
+
         # ========================================
-        # 🧼 DATA TRANSFORMATIONS
+        # DATA TRANSFORMATIONS
         # ========================================
         if "date" in df.columns:
             df["date"] = pd.to_datetime(df["date"], errors="coerce")
@@ -98,32 +105,32 @@ def transform_chartmogul_metrics():
             df[col] = df[col].astype(str).str.strip()
 
         # ========================================
-        # 💾 SAVE OUTPUTS
+        # SAVE OUTPUTS
         # ========================================
         os.makedirs(output_dir, exist_ok=True)
 
         # Save Parquet with fallback
         parquet_path = os.path.join(output_dir, f"{base_filename}.parquet")
         save_parquet(df, parquet_path)
-        logging.info(f"✅ Saved Parquet to {parquet_path}")
-        print(f"✅ Saved Parquet to {parquet_path}")
+        logging.info(f"Saved Parquet to {parquet_path}")
+        print(f"Saved Parquet to {parquet_path}")
 
         # Save CSV
         csv_path = os.path.join(output_dir, f"{base_filename}.csv")
         df.to_csv(csv_path, index=False)
-        logging.info(f"✅ Saved CSV to {csv_path}")
-        print(f"✅ Saved CSV to {csv_path}")
+        logging.info(f"Saved CSV to {csv_path}")
+        print(f"Saved CSV to {csv_path}")
 
-        logging.info(f"✅ Transformation completed: {len(df)} rows processed.")
-        print(f"✅ Transformation completed: {len(df)} rows processed.")
+        logging.info(f"Transformation completed: {len(df)} rows processed.")
+        print(f"Transformation completed: {len(df)} rows processed.")
 
     except Exception as e:
-        logging.error(f"❌ Failed to transform ChartMogul metrics: {e}", exc_info=True)
-        print(f"❌ Failed to transform ChartMogul metrics: {e}")
+        logging.error(f"Failed to transform ChartMogul metrics: {e}", exc_info=True)
+        print(f"Failed to transform ChartMogul metrics: {e}")
         sys.exit(1)
 
 # ============================================
-# 🟢 ENTRY POINT
+# ENTRY POINT
 # ============================================
 
 if __name__ == "__main__":

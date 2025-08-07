@@ -10,7 +10,7 @@ API_SCRIPT = "run_api_scripts.py"
 METRICS_SCRIPT = "metrics_pipeline.py"
 
 # ------------------- DEBUG: SHOW PYTHON INTERPRETER -------------------
-print(f"🔍 Using Python interpreter: {sys.executable}")
+print(f" Using Python interpreter: {sys.executable}")
 
 # ------------------- LOGGING -------------------
 LOG_DIR = "logs"
@@ -30,8 +30,8 @@ status_summary = []
 
 def run_script(script_name):
     """Run a Python script and log its success or failure."""
-    logging.info(f"▶ Starting {script_name} ...")
-    print(f"▶ Starting {script_name} ...")
+    logging.info(f" Starting {script_name} ...")
+    print(f" Starting {script_name} ...")
     start_time = time.time()
 
     try:
@@ -72,11 +72,11 @@ def save_summary():
             f.write(f"{script}: {status} ({elapsed}s)\n")
 
     logging.info(f"Summary saved at {summary_file}")
-    print(f"\n📄 Summary saved at {summary_file}")
+    print(f"\n Summary saved at {summary_file}")
 
 def run_pipeline():
-    logging.info("🚀 Starting Full Pipeline Execution")
-    print("🚀 Starting Full Pipeline Execution\n")
+    logging.info("Starting Full Pipeline Execution")
+    print("Starting Full Pipeline Execution\n")
 
     # Step 1: Run API scripts
     run_script(API_SCRIPT)

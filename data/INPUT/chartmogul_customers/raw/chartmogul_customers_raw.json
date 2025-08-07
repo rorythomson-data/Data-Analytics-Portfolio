@@ -94,14 +94,21 @@
       "id": 177867721,
       "uuid": "cus_514e79e5-a727-48cb-96ad-daa56f6aca0b",
       "external_id": "cus_PzNLrP3gZiXUek",
-      "name": "Carla Fernandez Kessler",
-      "email": "carla.fernandez@emburse.com",
+      "name": "Emburse",
+      "email": "contact@emburse.com",
       "status": "Cancelled",
       "customer-since": "2024-04-25T09:28:15+00:00",
       "attributes": {
         "custom": {},
         "stripe": {},
+        "hubspot": {
+          "Company_owner": "29284147",
+          "Lifecycle_Stage": "lead",
+          "Latest_Source": "OFFLINE",
+          "Original_Source": "OFFLINE"
+        },
         "tags": [
+          "merged-customer",
           "merged-customer"
         ]
       },
@@ -109,19 +116,21 @@
       "data_source_uuids": [
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
       ],
       "external_ids": [
         "9678837704",
         "31471805157",
-        "cus_PzNLrP3gZiXUek"
+        "cus_PzNLrP3gZiXUek",
+        "203878706425"
       ],
-      "company": "",
+      "company": "Emburse",
       "country": "ES",
       "state": null,
       "city": "Sevilla",
       "zip": "41002",
-      "lead_created_at": null,
+      "lead_created_at": "2025-07-29T13:41:28.067Z",
       "free_trial_started_at": null,
       "address": {
         "country": "Spain",
@@ -132,7 +141,7 @@
       "mrr": 0,
       "arr": 0,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_PzNLrP3gZiXUek",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/177867721-Carla_Kessler",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/177867721-Emburse",
       "billing-system-type": "Stripe",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -788,8 +797,8 @@
       "id": 177868725,
       "uuid": "cus_cd4dfccd-4a9d-4738-8535-b7b6ca29c9f9",
       "external_id": "19692152811",
-      "name": "reda.ouchet@feverup.com",
-      "email": "reda.ouchet@feverup.com",
+      "name": "Fever Labs Inc",
+      "email": "tools.invoices@feverup.com",
       "status": "Active",
       "customer-since": "2024-07-31T12:39:43+00:00",
       "attributes": {
@@ -817,15 +826,17 @@
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
         "19692152811",
         "22607383008",
         "13089944509",
+        "cus_SoiieQVjcINdXx",
         "cus_S4FFGKA1CFX1up",
-        "cus_QZlLRRp3D5O3Vm",
-        "cus_SYdFllUZVWiTvM"
+        "cus_SYdFllUZVWiTvM",
+        "cus_QZlLRRp3D5O3Vm"
       ],
       "company": "",
       "country": "US",
@@ -897,7 +908,7 @@
       "id": 181628015,
       "uuid": "cus_594a0996-3b76-4f1e-98a4-044c798aa654",
       "external_id": "32046065645",
-      "name": "Daniel Terrasa Martinez",
+      "name": "Depasify SL",
       "email": "terrasa@depasify.com",
       "status": "Active",
       "customer-since": "2024-09-06T12:05:22+00:00",
@@ -924,14 +935,14 @@
       ],
       "external_ids": [
         "32046065645",
-        "cus_Qnc9ZW8sCzuwZP",
         "cus_S0WGS4Rt87xvpJ",
+        "cus_Qnc9ZW8sCzuwZP",
         "cus_Qzw9i1aVepBZUN",
         "cus_S8SU4iGUWIG0nc",
         "cus_S6YmrGM65FeLfE",
         "cus_RiB3nV08P9s4z0"
       ],
-      "company": "Daniel Terrasa Martinez",
+      "company": "",
       "country": "ES",
       "state": null,
       "city": "Val\u00e8ncia",
@@ -944,8 +955,8 @@
         "city": "Val\u00e8ncia",
         "address_zip": "46010"
       },
-      "mrr": 2009,
-      "arr": 24108,
+      "mrr": 2008,
+      "arr": 24096,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/32046065645",
       "chartmogul-url": "https://app.chartmogul.com/#/customers/181628015-Daniel_Terrasa_Martinez",
       "billing-system-type": "HubSpot",
@@ -1227,7 +1238,7 @@
       "external_id": "cus_QwukxAXjjTHZEj",
       "name": "B31978596",
       "email": "samuel.zardoya@antechdx.com",
-      "status": "Active",
+      "status": "Past Due",
       "customer-since": "2024-10-01T07:54:56+00:00",
       "attributes": {
         "custom": {},
@@ -1479,7 +1490,7 @@
       "external_id": "31067351235",
       "name": "OVERLAY ASESORAMIENTO Y SERVICIOS INFORMATICOS, S.A.",
       "email": "administracion@overlay.es",
-      "status": "Past Due",
+      "status": "Active",
       "customer-since": "2024-10-22T07:33:42+00:00",
       "attributes": {
         "custom": {},
@@ -2071,8 +2082,8 @@
       "attributes": {
         "custom": {},
         "stripe": {
-          "userId": "sLCodeMu2gYMVa7kLVu9Ym2DN6W2",
-          "companyId": "v67136novrciccndplqbpxrh"
+          "userId": "8NI3tLrNJjdvJWDAVhTWfyXsbh02",
+          "companyId": "upxnizybascqokfiifu04txh"
         },
         "tags": [
           "merged-customer",
@@ -2121,15 +2132,15 @@
       "id": 190122982,
       "uuid": "cus_31f7dcb1-bb94-4c48-b257-1698aa076562",
       "external_id": "cus_R3LFrhBDHpI1ni",
-      "name": "sergi.salvat@tendios.com",
-      "email": "sergi.salvat@tendios.com",
+      "name": "marcos.macias@tendios.com",
+      "email": "marcos.macias@tendios.com",
       "status": "Active",
       "customer-since": "2024-12-11T09:59:00+00:00",
       "attributes": {
         "custom": {},
         "stripe": {
-          "userId": "KX8N845etBhJmJUZa5SRm0cKG6s1",
-          "companyId": "iizrrm0xmxkik2k5f2rlraiq"
+          "userId": "AK1VBiKs3KUoBvUrnczwh0teRYI3",
+          "companyId": "kxo6yj4p96o17vinlyvwk5tn"
         },
         "hubspot": {
           "Company_owner": "1287676883",
@@ -2146,10 +2157,10 @@
       "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
@@ -2159,7 +2170,6 @@
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
-        "cus_Rkr7IoUUvJLtxA",
         "cus_RAWPBZ82IYIfbD",
         "22625436921",
         "cus_RhmLDTJCwJ7NzB",
@@ -2170,7 +2180,8 @@
         "cus_RAnnzI48LtPxmj",
         "cus_RMtLm1vybqdhZu",
         "cus_RFhkyd3s9LbYcH",
-        "cus_R3LFrhBDHpI1ni"
+        "cus_R3LFrhBDHpI1ni",
+        "cus_Rkr7IoUUvJLtxA"
       ],
       "company": "",
       "country": "ES",
@@ -2188,7 +2199,7 @@
       "mrr": 7800,
       "arr": 93600,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_R3LFrhBDHpI1ni",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/190122982-marcos_macias_tendios_com",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/190122982-lenin_romero_tendios_com",
       "billing-system-type": "Stripe",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -2294,7 +2305,7 @@
       "external_id": "cus_RQtoMOYMwYhRM0",
       "name": "Onegolive Services, S.l.",
       "email": "angel.mejia@onegolive.com",
-      "status": "Active",
+      "status": "Cancelled",
       "customer-since": "2024-12-24T11:54:44+00:00",
       "attributes": {
         "custom": {},
@@ -2328,8 +2339,8 @@
         "city": "Zaragoza",
         "address_zip": "50004"
       },
-      "mrr": 4902,
-      "arr": 58824,
+      "mrr": 0,
+      "arr": 0,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_RQtoMOYMwYhRM0",
       "chartmogul-url": "https://app.chartmogul.com/#/customers/202092488-Onegolive_Services_S_l_",
       "billing-system-type": "Stripe",
@@ -2401,13 +2412,13 @@
       "external_id": "27036604612",
       "name": "SHOW2BE, SL",
       "email": "ivan.avila@show2be.com",
-      "status": "Active",
+      "status": "Past Due",
       "customer-since": "2024-12-31T19:14:53+00:00",
       "attributes": {
         "custom": {},
         "stripe": {
-          "userId": "g3afQTzyvHXJnhw6Ae6JZqXewlz1",
-          "companyId": "s3ad4t6ak0wk5y39kk5m3fni"
+          "userId": "A8hzADvRIrOliF7l7GefLtZFZGB2",
+          "companyId": "mfpqeyecmzris9euet6u5av4"
         },
         "hubspot": {
           "Company_owner": "1287676883",
@@ -2423,18 +2434,18 @@
       "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
+        "cus_RLKNy300j8MAER",
         "cus_RVBGjVzTv2j5Hw",
         "303896984774",
         "27036604612",
         "318186742992",
-        "cus_RLKNy300j8MAER",
         "cus_SWIxYKjvZkspXZ"
       ],
       "company": "",
@@ -2977,8 +2988,8 @@
       "id": 208272202,
       "uuid": "cus_3fa79225-a8fe-4839-b354-8e19b3cc5730",
       "external_id": "98885007557",
-      "name": "estudiante.esther.molins@celering.com",
-      "email": "estudiante.esther.molins@celering.com",
+      "name": "CELERING SMART MOBILITY SERVICES, S.L.",
+      "email": "josemaria.campos@celering.com",
       "status": "Active",
       "customer-since": "2025-02-21T08:46:22+00:00",
       "attributes": {
@@ -3028,8 +3039,8 @@
         "city": "Madrid",
         "address_zip": "28046"
       },
-      "mrr": 14700,
-      "arr": 176400,
+      "mrr": 19600,
+      "arr": 235200,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/98885007557",
       "chartmogul-url": "https://app.chartmogul.com/#/customers/208272202-estudiante_esther_molins_celering_com",
       "billing-system-type": "HubSpot",
@@ -3237,7 +3248,7 @@
       "external_id": "cus_RiVHpgEqtK1GQS",
       "name": "MOOl Real Estate Services, S.L.",
       "email": "sebastian@mooi3.com",
-      "status": "Active",
+      "status": "Past Due",
       "customer-since": "2025-03-04T16:34:13+00:00",
       "attributes": {
         "custom": {},
@@ -4363,8 +4374,8 @@
       "id": 211519623,
       "uuid": "cus_934854b9-1f4a-4533-bf44-568f49568d12",
       "external_id": "cus_RsNyv7QVrMIiGr",
-      "name": "Claudia Tellez",
-      "email": "claudia.tellez@swrla.com",
+      "name": "Sales War Room S.A.S",
+      "email": "ximena.mateus@swrla.com",
       "status": "Active",
       "customer-since": "2025-04-01T16:14:44+00:00",
       "attributes": {
@@ -4392,7 +4403,7 @@
         "234920139982",
         "cus_RsNyv7QVrMIiGr"
       ],
-      "company": "Claudia Tellez",
+      "company": "",
       "country": "CO",
       "state": null,
       "city": "Bogota",
@@ -4408,7 +4419,7 @@
       "mrr": 4900,
       "arr": 58800,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_RsNyv7QVrMIiGr",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/211519623-Claudia_Tellez",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/211519623-claudia_tellez_swrla_com",
       "billing-system-type": "Stripe",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -4419,8 +4430,8 @@
       "id": 219302859,
       "uuid": "cus_eeb71a6b-3aca-4f18-8400-dcd63a7a4e60",
       "external_id": "118467997943",
-      "name": "Foccuz",
-      "email": "claudia.vanos@foccuz.com",
+      "name": "Foccuz ",
+      "email": "contact@foccuz.com",
       "status": "Active",
       "customer-since": "2025-04-03T13:40:30+00:00",
       "attributes": {
@@ -4441,16 +4452,16 @@
       },
       "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
       "data_source_uuids": [
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
       ],
       "external_ids": [
-        "118467997943",
         "cus_S0Hfk9sIH9Ox7P",
-        "cus_S3vsSvBwyKzFah"
+        "cus_S3vsSvBwyKzFah",
+        "118467997943"
       ],
-      "company": "",
+      "company": "Foccuz ",
       "country": "CL",
       "state": null,
       "city": "santiago",
@@ -4466,7 +4477,7 @@
       "mrr": 14058,
       "arr": 168696,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/118467997943",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/219302859-Javier_Moreno_Carbone",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/219302859-Foccuz_",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -4477,8 +4488,8 @@
       "id": 210170295,
       "uuid": "cus_9c9c555f-aa64-4b3b-b0e3-bbeba7c3c0e9",
       "external_id": "cus_Rq4xrDIyECqgc6",
-      "name": "Josep Juaneda",
-      "email": "josep.juanedajosa@viajeseci.es",
+      "name": "antonioferrer@viajeseci.es",
+      "email": "antonioferrer@viajeseci.es",
       "status": "Active",
       "customer-since": "2025-04-04T12:05:16+00:00",
       "attributes": {
@@ -4510,7 +4521,7 @@
         "cus_S4HYSgGMlxoorM",
         "cus_S5Qb0Rerpsvdua"
       ],
-      "company": "Josep Juaneda",
+      "company": "",
       "country": "ES",
       "state": null,
       "city": "Madrid",
@@ -4526,7 +4537,7 @@
       "mrr": 55460,
       "arr": 665520,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_Rq4xrDIyECqgc6",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/210170295-Josep_Juaneda",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/210170295-mariadolores_lobolozano_viajeseci_es",
       "billing-system-type": "Stripe",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -4589,7 +4600,7 @@
       "id": 220805115,
       "uuid": "cus_2a6ac69d-278c-4974-88fa-9a792c5772fb",
       "external_id": "238687539439",
-      "name": "Ligia Rebeca Cervantes",
+      "name": "",
       "email": "lcervantes@market-beat.com",
       "status": "Active",
       "customer-since": "2025-04-08T21:18:58+00:00",
@@ -4609,7 +4620,7 @@
         "cus_S3IoMjeHpflxJo",
         "238687539439"
       ],
-      "company": "",
+      "company": "238687539439",
       "country": "SV",
       "state": null,
       "city": "San Salvador",
@@ -4625,7 +4636,7 @@
       "mrr": 9983,
       "arr": 119796,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/238687539439",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/220805115-lcervantes_market-beat_com",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/220805115-238687539439",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -4915,7 +4926,7 @@
       "id": 226608250,
       "uuid": "cus_4e19340a-fd09-458f-8b4c-e067c995f2e0",
       "external_id": "146278245583",
-      "name": "Sara Jimenez Lopez",
+      "name": "Sara ",
       "email": "admin@zexel.io",
       "status": "Active",
       "customer-since": "2025-05-16T07:32:45+00:00",
@@ -4938,17 +4949,17 @@
       "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
       ],
       "external_ids": [
         "cus_SJweK0UUvhrNKW",
+        "cus_SL4rsePCY1F8HC",
         "294049237207",
-        "146278245583",
-        "cus_SL4rsePCY1F8HC"
+        "146278245583"
       ],
-      "company": "",
+      "company": "Sara ",
       "country": "ES",
       "state": null,
       "city": null,
@@ -4964,7 +4975,7 @@
       "mrr": 4900,
       "arr": 58800,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/146278245583",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/226608250-Sara",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/226608250-Sara_",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -5239,8 +5250,8 @@
       "id": 226378604,
       "uuid": "cus_e173e3d5-431f-4b9b-8d62-60608abccd61",
       "external_id": "cus_SFqZylZ9unUD17",
-      "name": "andrea.valli@mediaengine.it",
-      "email": "andrea.valli@mediaengine.it",
+      "name": "MediaEngine Srl",
+      "email": "amministrazione@mediaengine.it",
       "status": "Active",
       "customer-since": "2025-05-30T09:40:52+00:00",
       "attributes": {
@@ -5269,8 +5280,8 @@
       "external_ids": [
         "cus_SU3WhnMsHIVg3l",
         "144801529053",
-        "cus_SJbUwMa0cgvVnC",
-        "cus_SFqZylZ9unUD17"
+        "cus_SFqZylZ9unUD17",
+        "cus_SJbUwMa0cgvVnC"
       ],
       "company": "",
       "country": "IT",
@@ -5348,9 +5359,9 @@
       "id": 227947407,
       "uuid": "cus_c7e10fcb-f74b-4dcd-93de-6ff802704cd5",
       "external_id": "cus_SLaXOAYvQe19ib",
-      "name": "e-bitware",
-      "email": "contact@e-bitware.com",
-      "status": "Active",
+      "name": "plataformas digitales",
+      "email": "karla.torres@e-bitware.com",
+      "status": "Cancelled",
       "customer-since": "2025-06-03T20:24:36+00:00",
       "attributes": {
         "custom": {},
@@ -5372,22 +5383,22 @@
       },
       "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
       "data_source_uuids": [
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
-        "cus_SQtAeRfXMSBinR",
         "328065454287",
         "159222159607",
         "cus_SLaXOAYvQe19ib",
         "303118926038",
-        "310636208358"
+        "310636208358",
+        "cus_SQtAeRfXMSBinR"
       ],
-      "company": "e-bitware",
+      "company": "",
       "country": "MX",
       "state": null,
       "city": "Miguel Hidalgo",
@@ -5400,10 +5411,10 @@
         "city": "Miguel Hidalgo",
         "address_zip": "11510"
       },
-      "mrr": 29700,
-      "arr": 356400,
+      "mrr": 0,
+      "arr": 0,
       "billing-system-url": "https://dashboard.stripe.com/customers/cus_SLaXOAYvQe19ib",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/227947407-e-bitware",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/227947407-asistente_direccion_e-bitware_com",
       "billing-system-type": "Stripe",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -5564,11 +5575,13 @@
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
         "cus_SVxRabx7dDvMXc",
         "cus_SVxcucttQR88wH",
+        "cus_Smps1TrCBRiVHt",
         "cus_SRvqPauUNwpvVn"
       ],
       "company": "",
@@ -5841,8 +5854,8 @@
       "id": 232544910,
       "uuid": "cus_26619b7c-3744-4ac8-91d4-ff7373c16587",
       "external_id": "356114424039",
-      "name": "Silvia Ortega Garc\u00eda",
-      "email": "silvia.ortega@e-go2market.com",
+      "name": "Gaztelu y Ortega SL",
+      "email": "informacion@e-go2market.com",
       "status": "Active",
       "customer-since": "2025-07-10T05:30:30+00:00",
       "attributes": {
@@ -5863,7 +5876,7 @@
         "356114424040",
         "cus_SeW6tFemFhZsh5"
       ],
-      "company": "Silvia Ortega Garc\u00eda",
+      "company": "",
       "country": "ES",
       "state": null,
       "city": "Alcobendas",
@@ -5879,7 +5892,7 @@
       "mrr": 9900,
       "arr": 118800,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/356114424039",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/232544910-Silvia_Ortega_Garca",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/232544910-Sandra_Seabra",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -5942,8 +5955,8 @@
       "id": 226765192,
       "uuid": "cus_23b1e34b-376f-4a93-a81b-c22dd3863e36",
       "external_id": "146683350208",
-      "name": "Pedro Mej\u00eda Quintana",
-      "email": "pedro.mary.mejia@woztell.com",
+      "name": "WOZTELL",
+      "email": "contact@woztell.com",
       "status": "Active",
       "customer-since": "2025-07-11T08:50:22+00:00",
       "attributes": {
@@ -5965,23 +5978,23 @@
       "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
-        "cus_Sew1BswBOj1gbI",
         "cus_SewCDi67Uxsn6g",
         "359569016020",
+        "cus_Sew1BswBOj1gbI",
         "286673246439",
         "286701894842",
         "146683350208",
         "cus_Sg5mKkLi6cRl6s"
       ],
-      "company": "Pedro Mej\u00eda Quintana",
+      "company": "WOZTELL",
       "country": "ES",
       "state": null,
       "city": "Valencia",
@@ -5997,7 +6010,7 @@
       "mrr": 9900,
       "arr": 118800,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/146683350208",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/226765192-Pedro_Meja_Quintana",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/226765192-WOZTELL",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -6051,8 +6064,8 @@
       "id": 230809966,
       "uuid": "cus_b532b421-c294-4ee6-83cf-6ccc871b3619",
       "external_id": "175506468064",
-      "name": "Ary Molchadsky",
-      "email": "ary@linkit-hr.com",
+      "name": "gonzalo@linkit-hr.com",
+      "email": "gonzalo@linkit-hr.com",
       "status": "Active",
       "customer-since": "2025-07-14T14:10:48+00:00",
       "attributes": {
@@ -6084,7 +6097,7 @@
         "cus_Sg9OOYI8rLa7GB",
         "175506468064"
       ],
-      "company": "Ary Molchadsky",
+      "company": "",
       "country": "US",
       "state": "WY",
       "city": "Sheridan",
@@ -6324,11 +6337,54 @@
       "website_url": "https://klinikare.com"
     },
     {
+      "id": 232632241,
+      "uuid": "cus_0cf06c67-f964-43dd-80c4-3ea562075344",
+      "external_id": "cus_SeC3au1OjPgejJ",
+      "name": "CLARITY AI EUROPE SL",
+      "email": "accounts.payable@clarity.ai",
+      "status": "Active",
+      "customer-since": "2025-07-23T08:48:14+00:00",
+      "attributes": {
+        "custom": {},
+        "stripe": {},
+        "tags": []
+      },
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+      "data_source_uuids": [
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+      ],
+      "external_ids": [
+        "cus_SeC3au1OjPgejJ"
+      ],
+      "company": "",
+      "country": "ES",
+      "state": null,
+      "city": "Madrid",
+      "zip": "28015",
+      "lead_created_at": "2025-07-09T08:48:14.000Z",
+      "free_trial_started_at": "2025-07-09T08:48:14.000Z",
+      "address": {
+        "country": "Spain",
+        "state": null,
+        "city": "Madrid",
+        "address_zip": "28015"
+      },
+      "mrr": 73500,
+      "arr": 882000,
+      "billing-system-url": "https://dashboard.stripe.com/customers/cus_SeC3au1OjPgejJ",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/232632241-CLARITY_AI_EUROPE_SL",
+      "billing-system-type": "Stripe",
+      "currency": "EUR",
+      "currency-sign": "\u20ac",
+      "owner": null,
+      "website_url": "https://clarity.ai"
+    },
+    {
       "id": 231468030,
       "uuid": "cus_b45733e2-28ba-4796-a9d8-4886651af554",
       "external_id": "179442343137",
-      "name": "E GLOBAL TECHNOLOGY",
-      "email": "cmaldonado@ezytec.co",
+      "name": "mortega@ezytec.co",
+      "email": "mortega@ezytec.co",
       "status": "Active",
       "customer-since": "2025-07-24T15:37:08+00:00",
       "attributes": {
@@ -6350,13 +6406,13 @@
       "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
       "data_source_uuids": [
         "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
       ],
       "external_ids": [
-        "cus_Sjvi9W58VoMfE1",
         "cus_Sjv2EaMw1Maxbx",
-        "179442343137"
+        "179442343137",
+        "cus_Sjvi9W58VoMfE1"
       ],
       "company": "",
       "country": "CO",
@@ -6374,7 +6430,7 @@
       "mrr": 6811,
       "arr": 81732,
       "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/179442343137",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/231468030-mortega_ezytec_co",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/231468030-E_GLOBAL_TECHNOLOGY",
       "billing-system-type": "HubSpot",
       "currency": "EUR",
       "currency-sign": "\u20ac",
@@ -6423,6 +6479,101 @@
       "currency-sign": "\u20ac",
       "owner": null,
       "website_url": "https://hastee.com"
+    },
+    {
+      "id": 226734606,
+      "uuid": "cus_1b276edc-3343-4aa4-aa30-af8d974aa867",
+      "external_id": "285111882947",
+      "name": "ccaballero@geomov.com",
+      "email": "ccaballero@geomov.com",
+      "status": "Active",
+      "customer-since": "2025-07-30T13:44:54+00:00",
+      "attributes": {
+        "custom": {},
+        "stripe": {
+          "userId": "OwWSvpWCsyOE5nAcTlFzcUjwsE73",
+          "companyId": "chdm0vo0iwi0j4zn659djquf"
+        },
+        "tags": [
+          "merged-customer"
+        ]
+      },
+      "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+      "data_source_uuids": [
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+      ],
+      "external_ids": [
+        "cus_SYM9ojde1tUJ3g",
+        "285111882947",
+        "cus_Sm8aK88Qx41NXK"
+      ],
+      "company": "",
+      "country": "CL",
+      "state": null,
+      "city": "Santiago",
+      "zip": null,
+      "lead_created_at": "2025-05-08T07:43:41.278Z",
+      "free_trial_started_at": "2025-06-23T18:49:23.000Z",
+      "address": {
+        "country": "Chile",
+        "state": null,
+        "city": "Santiago",
+        "address_zip": null
+      },
+      "mrr": 9900,
+      "arr": 118800,
+      "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/285111882947",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/226734606-Cecilia_Caballero",
+      "billing-system-type": "HubSpot",
+      "currency": "EUR",
+      "currency-sign": "\u20ac",
+      "owner": null,
+      "website_url": "https://geomov.com"
+    },
+    {
+      "id": 234767276,
+      "uuid": "cus_53feb097-2245-4dd6-8d56-fa47aa9bcd97",
+      "external_id": "cus_SoMuXZShwa3Mn3",
+      "name": "HOPLA SOFTWARE SL",
+      "email": "marketing@hoplasoftware.com",
+      "status": "Active",
+      "customer-since": "2025-08-05T12:40:20+00:00",
+      "attributes": {
+        "custom": {},
+        "stripe": {},
+        "tags": []
+      },
+      "data_source_uuid": "ds_78983044-48ff-11ef-a3c9-aba08b7ca782",
+      "data_source_uuids": [
+        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
+      ],
+      "external_ids": [
+        "cus_SoMuXZShwa3Mn3"
+      ],
+      "company": "",
+      "country": "ES",
+      "state": null,
+      "city": "Madrid",
+      "zip": "28020",
+      "lead_created_at": null,
+      "free_trial_started_at": null,
+      "address": {
+        "country": "Spain",
+        "state": null,
+        "city": "Madrid",
+        "address_zip": "28020"
+      },
+      "mrr": 9900,
+      "arr": 118800,
+      "billing-system-url": "https://dashboard.stripe.com/customers/cus_SoMuXZShwa3Mn3",
+      "chartmogul-url": "https://app.chartmogul.com/#/customers/234767276-HOPLA_SOFTWARE_SL",
+      "billing-system-type": "Stripe",
+      "currency": "EUR",
+      "currency-sign": "\u20ac",
+      "owner": null,
+      "website_url": "https://hoplasoftware.com"
     },
     {
       "id": 177867712,
@@ -9825,156 +9976,6 @@
       "currency-sign": "\u20ac",
       "owner": null,
       "website_url": null
-    },
-    {
-      "id": 177868109,
-      "uuid": "cus_f33b64df-c919-48c5-a7f9-ee8207ec7c60",
-      "external_id": "12756372416",
-      "name": "Luis Guillermo Velandia Sanabria",
-      "email": "",
-      "status": "New Lead",
-      "customer-since": null,
-      "attributes": {
-        "custom": {},
-        "stripe": {},
-        "hubspot": {
-          "Company_owner": "1395565012",
-          "Industry": "MANAGEMENT_CONSULTING",
-          "Lifecycle_Stage": "lead",
-          "Latest_Source": "OFFLINE",
-          "Original_Source": "OFFLINE"
-        },
-        "tags": []
-      },
-      "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-      "data_source_uuids": [
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
-      ],
-      "external_ids": [
-        "12756372416"
-      ],
-      "company": "Sandler Madrid",
-      "country": "US",
-      "state": "MD",
-      "city": "",
-      "zip": "20877",
-      "lead_created_at": "2024-07-09T15:05:15.262Z",
-      "free_trial_started_at": null,
-      "address": {
-        "country": "United States",
-        "state": "Maryland",
-        "city": "",
-        "address_zip": "20877"
-      },
-      "mrr": 0,
-      "arr": 0,
-      "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/12756372416",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/177868109-Sandler_Madrid",
-      "billing-system-type": "HubSpot",
-      "currency": "EUR",
-      "currency-sign": "\u20ac",
-      "owner": null,
-      "website_url": null
-    },
-    {
-      "id": 177868110,
-      "uuid": "cus_75fd8256-8f2e-49fc-b3f1-03b4a62e673b",
-      "external_id": "11395775224",
-      "name": "C Penalva",
-      "email": "c.penalva@bcdtravel.es",
-      "status": "New Lead",
-      "customer-since": null,
-      "attributes": {
-        "custom": {},
-        "stripe": {},
-        "hubspot": {
-          "Company_owner": "1395565787",
-          "Lifecycle_Stage": "lead",
-          "Latest_Source": "OFFLINE",
-          "Original_Source": "OFFLINE"
-        },
-        "tags": [
-          "merged-customer"
-        ]
-      },
-      "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-      "data_source_uuids": [
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_78983044-48ff-11ef-a3c9-aba08b7ca782"
-      ],
-      "external_ids": [
-        "11395775224",
-        "cus_Qzw4BGIRuVhR68"
-      ],
-      "company": "",
-      "country": null,
-      "state": null,
-      "city": null,
-      "zip": null,
-      "lead_created_at": null,
-      "free_trial_started_at": null,
-      "address": {
-        "country": null,
-        "state": null,
-        "city": null,
-        "address_zip": null
-      },
-      "mrr": 0,
-      "arr": 0,
-      "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/11395775224",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/177868110-Concha_Penalva",
-      "billing-system-type": "HubSpot",
-      "currency": "EUR",
-      "currency-sign": "\u20ac",
-      "owner": null,
-      "website_url": "https://bcdtravel.es"
-    },
-    {
-      "id": 177868111,
-      "uuid": "cus_b37ba304-00e2-4747-ba8a-3f4de3f2bd0e",
-      "external_id": "1651",
-      "name": "Rosa Rufo De la",
-      "email": "rufodelarosa@4founderscapital.com",
-      "status": "New Lead",
-      "customer-since": null,
-      "attributes": {
-        "custom": {},
-        "stripe": {},
-        "tags": [
-          "merged-customer"
-        ]
-      },
-      "data_source_uuid": "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-      "data_source_uuids": [
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c",
-        "ds_ab518fb2-48ff-11ef-a6a7-c71cb5a83d1c"
-      ],
-      "external_ids": [
-        "1652",
-        "1651"
-      ],
-      "company": "Rosa Rufo De la",
-      "country": null,
-      "state": null,
-      "city": null,
-      "zip": null,
-      "lead_created_at": "2024-01-22T16:22:18.128Z",
-      "free_trial_started_at": null,
-      "address": {
-        "country": null,
-        "state": null,
-        "city": null,
-        "address_zip": null
-      },
-      "mrr": 0,
-      "arr": 0,
-      "billing-system-url": "https://app-eu1.hubspot.com/contacts/143433615/company/1651",
-      "chartmogul-url": "https://app.chartmogul.com/#/customers/177868111-Rosa_Rufo_De_la",
-      "billing-system-type": "HubSpot",
-      "currency": "EUR",
-      "currency-sign": "\u20ac",
-      "owner": null,
-      "website_url": "https://4founderscapital.com"
     }
   ],
   "current_page": 1,
@@ -9982,5 +9983,5 @@
   "has_more": true,
   "per_page": 200,
   "page": 1,
-  "cursor": "JjE3Nzg2ODExMQ=="
+  "cursor": "JjE3Nzg2ODEwOA=="
 }

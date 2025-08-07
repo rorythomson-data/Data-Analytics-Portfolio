@@ -1,5 +1,5 @@
 # ================================================================
-# 📌 PIPELINE ORCHESTRATOR SCRIPT - CONTEXT & DESIGN
+# PIPELINE ORCHESTRATOR SCRIPT - CONTEXT & DESIGN
 # ================================================================
 # This script runs all data extraction and transformation steps for:
 #   - ChartMogul (Customer, Metrics, Plans, MRR Components)
@@ -27,7 +27,7 @@ import sys
 import time
 
 # ================================================================
-# 🪵 LOGGING SETUP
+# LOGGING SETUP
 # ================================================================
 
 os.makedirs("logs", exist_ok=True)
@@ -44,7 +44,7 @@ YELLOW = "\033[93m"
 RESET = "\033[0m"
 
 # ================================================================
-# 📂 SCRIPT LIST (ORDERED)
+# SCRIPT LIST (ORDERED)
 # ================================================================
 
 scripts = [
@@ -72,7 +72,7 @@ scripts = [
 ]
 
 # ================================================================
-# ✅ REQUIRED OUTPUT FILES
+# REQUIRED OUTPUT FILES
 # ================================================================
 
 required_files = [
@@ -86,20 +86,20 @@ required_files = [
 results = []
 
 # ================================================================
-# ⚙️ FUNCTION TO RUN EACH SCRIPT
+# FUNCTION TO RUN EACH SCRIPT
 # ================================================================
 
 def run_script(script):
     start_time = time.time()
     if not os.path.exists(script):
-        logging.warning(f"⚠️ Script not found: {script}")
-        print(f"{YELLOW}⚠️ Script not found: {script}{RESET}")
+        logging.warning(f"Script not found: {script}")
+        print(f"{YELLOW} Script not found: {script}{RESET}")
         results.append((script, "NOT FOUND", 0))
         return
 
     try:
-        logging.info(f"▶ Running {script}")
-        print(f"▶ Running {script} ...")
+        logging.info(f"Running {script}")
+        print(f"Running {script} ...")
 
         # UTF-8 safe execution
         result = subprocess.run(
@@ -112,14 +112,14 @@ def run_script(script):
 
         elapsed = round(time.time() - start_time, 2)
         if result.returncode == 0:
-            logging.info(f"✅ Success: {script} ({elapsed}s)")
-            print(f"{GREEN}✅ Success: {script} ({elapsed}s){RESET}")
+            logging.info(f"Success: {script} ({elapsed}s)")
+            print(f"{GREEN} Success: {script} ({elapsed}s){RESET}")
             if result.stdout:
                 print(f"{YELLOW}--- STDOUT ---\n{result.stdout}{RESET}")
             results.append((script, "SUCCESS", elapsed))
         else:
-            logging.error(f"❌ Failed: {script} — {result.stderr}")
-            print(f"{RED}❌ Failed: {script} ({elapsed}s){RESET}")
+            logging.error(f"Failed: {script} — {result.stderr}")
+            print(f"{RED} Failed: {script} ({elapsed}s){RESET}")
             if result.stdout:
                 print(f"{YELLOW}--- STDOUT ---\n{result.stdout}{RESET}")
             if result.stderr:
@@ -127,46 +127,46 @@ def run_script(script):
             results.append((script, "FAILED", elapsed))
     except subprocess.CalledProcessError as e:
         elapsed = round(time.time() - start_time, 2)
-        logging.error(f"❌ Failed: {script} — {e}")
-        print(f"{RED}❌ Failed: {script} ({elapsed}s){RESET}")
+        logging.error(f"Failed: {script} — {e}")
+        print(f"{RED} Failed: {script} ({elapsed}s){RESET}")
         results.append((script, "FAILED", elapsed))
 
 # ================================================================
-# 🟢 MAIN EXECUTION
+# MAIN EXECUTION
 # ================================================================
 
 if __name__ == "__main__":
-    logging.info("🚀 Starting full pipeline execution")
-    print("🚀 Starting pipeline execution...\n")
+    logging.info("Starting full pipeline execution")
+    print("Starting pipeline execution...\n")
 
     for script in scripts:
         run_script(script)
         # Stop early if a critical script fails
         if results[-1][1] == "FAILED":
-            print(f"{RED}❌ Critical failure detected: {script}. Stopping pipeline.{RESET}")
+            print(f"{RED} Critical failure detected: {script}. Stopping pipeline.{RESET}")
             sys.exit(1)
 
     # Verify required files
-    print("\n🔍 Verifying required files...\n")
+    print("\n Verifying required files...\n")
     missing_files = []
     for file_path in required_files:
         if not os.path.exists(file_path):
             missing_files.append(file_path)
-            print(f"{RED}❌ Missing file: {file_path}{RESET}")
+            print(f"{RED} Missing file: {file_path}{RESET}")
         else:
-            print(f"{GREEN}✅ Found: {file_path}{RESET}")
+            print(f"{GREEN} Found: {file_path}{RESET}")
 
     if missing_files:
         logging.error("Some required files are missing. Pipeline cannot continue.")
         sys.exit(1)
 
-    # 📋 Console Summary
-    print("\n📋 Summary:\n")
+    # Console Summary
+    print("\n Summary:\n")
     for script, status, elapsed in results:
         color = GREEN if status == "SUCCESS" else RED if status == "FAILED" else YELLOW
         print(f"{color}{status:<10}{RESET} — {script} ({elapsed}s)")
 
-    # 📄 Save summary to log file
+    #  Save summary to log file
     with open("logs/pipeline_summary.txt", "w", encoding="utf-8") as f:
         for script, status, elapsed in results:
             f.write(f"{status:<10} — {script} ({elapsed}s)\n")
