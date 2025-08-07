@@ -679,78 +679,72 @@ def calculate_arpa(df_cm_metrics):
     return df
 
 # --------------------------------------------------------------------------
-# 9. Absolute Customer Churn (customer_churn_abs_cm)             * VALID: Calculated from churn rate × customers
-#     ───────────────────────────────────────────────────────
+# 9. Customer Count (customers_cm)                        * VALID: Taken directly from CM_Metrics
+#     ─────────────────────────────────────────────
 #
 # * Formula:
-#     customer_churn_abs_cm = (customer_churn_rate / 100) × customers
-#   Where:
-#     customer_churn_rate = % of customers who churned in a month (reported by ChartMogul)
-#     customers = total customer count for the same month
+#     customers_cm = total number of customers (monthly)
 #
 # * Source Table(s) and Columns:
 #     - df_CM_metrics_clean:
 #         • 'month_start' → first day of the month
-#         • 'customer-churn-rate' → churn rate in percent (%)
-#         • 'customers' → total number of customers
+#         • 'customers'   → total number of customers
 #
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
-#     2. Calculate churn count: (customer-churn-rate / 100) × customers
-#     3. Round to 2 decimals
-#     4. Rename column to 'customer_churn_abs_cm'
+#     2. Select 'customers' column
+#     3. Rename column to 'customers_cm'
 #
 # * Assumptions / Filters:
-#     - Assumes churn rate is accurate and based on full customer base
-#     - Rounding to 2 decimals for consistency with monetary metrics
+#     - Assumes ChartMogul's customer counts are correct for the given month
 #
 # * Flowchart:
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
-#             └── Calculate churn count
-#                 └── Round + rename to 'customer_churn_abs_cm'
+#             └── Select 'customers'
+#                 └── Rename to 'customers_cm'
 # --------------------------------------------------------------------------
 
-def calculate_customer_churn_abs_cm(df_cm_metrics):
+def calculate_customers_cm(df_cm_metrics):
     """
-    Calculate the monthly absolute number of churned customers using
-    ChartMogul's churn rate and customer count.
+    Extract the number of customers per month as reported by ChartMogul.
 
     Parameters:
-        df_cm_metrics (pd.DataFrame): Cleaned ChartMogul metrics data.
+        df_cm_metrics (pd.DataFrame):
+            Cleaned ChartMogul metrics data containing:
+            - 'month_start' (str/date): First day of the month
+            - 'customers' (int): Total number of active customers
 
     Returns:
-        pd.DataFrame: DataFrame with columns:
+        pd.DataFrame:
+            DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'customer_churn_abs_cm' (float): Monthly churned customer count
+            - 'customers_cm' (int)
     """
 
     # ----------------------------------------------------------------------
     # STEP 1: Validate required columns exist
     # ----------------------------------------------------------------------
-    # Ensures 'month_start', 'customer-churn-rate', and 'customers' are present
-    validate_columns(df_cm_metrics, ['month_start', 'customer-churn-rate', 'customers'], "ChartMogul Metrics")
+    # Ensures that the input contains the required fields
+    validate_columns(df_cm_metrics, ['month_start', 'customers'], "ChartMogul Metrics")
 
     # ----------------------------------------------------------------------
-    # STEP 2: Create a copy of the DataFrame and extract 'month'
+    # STEP 2: Work on a copy and extract 'month'
     # ----------------------------------------------------------------------
-    # Prevents modifying the original input and adds a YYYY-MM formatted 'month' column
+    # Avoids modifying the original DataFrame
     df = df_cm_metrics.copy()
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 3: Calculate absolute churn and round
+    # STEP 3: Select and rename columns
     # ----------------------------------------------------------------------
-    # Converts churn rate from % to decimal and multiplies by total customers
-    df['customer_churn_abs_cm'] = (
-        (df['customer-churn-rate'] / 100) * df['customers']
-    ).round(2)
+    # Keeps only the customer count per month with standardized naming
+    df = df[['month', 'customers']].rename(columns={'customers': 'customers_cm'})
 
     # ----------------------------------------------------------------------
     # STEP 4: Return final DataFrame
     # ----------------------------------------------------------------------
-    # Returns only the month and churned customer count per month
-    return df[['month', 'customer_churn_abs_cm']]
+    return df
 
 # --------------------------------------------------------------------------
 # 10. Customer Churn Rate           * VALID: Taken directly from CM_Metrics
@@ -845,7 +839,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
     return df
 
 # --------------------------------------------------------------------------
-# 10. Revenue Churn Rate                * VALID: Taken directly from CM_Metrics
+# 11. Revenue Churn Rate                * VALID: Taken directly from CM_Metrics
 #    ──────────────────────────────────────────────────────────
 #
 # * Formula:
@@ -934,7 +928,7 @@ def calculate_revenue_churn_rate(df_cm_metrics):
     return df
 
 # --------------------------------------------------------------------------
-# 11. Customer Lifetime Value               * VALID: Taken directly from CM_Metrics
+# 12. Customer Lifetime Value               * VALID: Taken directly from CM_Metrics
 #    ───────────────────────────────────────────────
 #
 # * Formula:
@@ -1992,7 +1986,7 @@ def run_pipeline(cash_balance):
     df_net_new_mrr = calculate_net_new_mrr(df_mrr_components)                   # 6
     df_arr = calculate_arr(df_mrr_components)                                   # 7
     df_arpa_cm = calculate_arpa(df_cm_metrics)                                  # 8
-    df_customer_churn_abs = calculate_customer_churn_abs_cm(df_cm_metrics)      # 9
+    df_customers_cm = calculate_customers_cm(df_cm_metrics)                     # 9
     df_customer_churn_rate = calculate_customer_churn_rate(df_cm_metrics)       # 10
     df_revenue_churn_rate = calculate_revenue_churn_rate(df_cm_metrics)         # 11
     df_ltv_cm = calculate_ltv_cm(df_cm_metrics)                                 # 12
@@ -2010,7 +2004,7 @@ def run_pipeline(cash_balance):
         df_mrr, df_expansion_mrr, df_contraction_mrr, df_new_mrr, df_churned_mrr,
         df_net_new_mrr, df_arr,
         df_arpa_cm,
-        df_customer_churn_rate, df_customer_churn_abs, df_revenue_churn_rate,
+        df_customer_churn_rate, df_customers_cm, df_revenue_churn_rate,
         df_ltv_cm, df_cac, df_cac_ltv_ratio,
         df_opex, df_cogs, df_financial_costs,
         df_ebitda, df_burn_rate, df_runway
@@ -2031,7 +2025,7 @@ def run_pipeline(cash_balance):
         'month', 'mrr', 'expansion_mrr', 'contraction_mrr', 'new_mrr', 'churned_mrr',
         'net_new_mrr', 'arr',
         'arpa_cm', 'arpa_invoiced', 'arpa_paid',
-        'customer_churn_abs_cm', 'customer_churn_rate_cm', 'revenue_churn_rate_cm', 'ltv_cm',
+        'customers_cm', 'customer_churn_rate_cm', 'revenue_churn_rate_cm', 'ltv_cm',
         'cac_costs', 'new_customers', 'cac', 'cac_ltv_ratio',
         'opex', 'cogs', 'financial_costs',
         'ebitda', 'burn_rate', 'runway'
