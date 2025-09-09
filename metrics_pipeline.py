@@ -584,7 +584,7 @@ def calculate_arr(df_mrr_components):
 #    ─────────────────────────────────────
 #
 # * Formula:
-#     arpa_cm = mrr / active_customers
+#     arpa = mrr / active_customers
 #   Where:
 #     mrr = Monthly Recurring Revenue for the month
 #     active_customers = number of active paying customers in that month
@@ -598,7 +598,7 @@ def calculate_arr(df_mrr_components):
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
 #     2. Select 'arpa' column
-#     3. Rename 'arpa' to 'arpa_cm'
+#     3. Rename 'arpa' to 'arpa'
 #
 # * Assumptions / Filters:
 #     - Follows ChartMogul’s default logic:
@@ -609,7 +609,7 @@ def calculate_arr(df_mrr_components):
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
 #             └── Select 'arpa' column
-#                 └── Rename to arpa_cm
+#                 └── Rename to arpa
 #
 # * Notes for Verification:
 #     - Useful for high-level overview and benchmarking
@@ -620,7 +620,7 @@ def calculate_arpa(df_cm_metrics):
     """
     Extract ChartMogul-calculated Average Revenue Per Account (ARPA) per month.
 
-    ARPA (arpa_cm) is defined as:
+    ARPA (arpa) is defined as:
         arpa = mrr / active_customers
     where:
         mrr = Monthly Recurring Revenue for the month
@@ -636,7 +636,7 @@ def calculate_arpa(df_cm_metrics):
         pd.DataFrame:
             DataFrame with:
             - 'month' (str, YYYY-MM)
-            - 'arpa_cm' (float): ChartMogul-calculated ARPA
+            - 'arpa' (float): ChartMogul-calculated ARPA
     """
 
     # ----------------------------------------------------------------------
@@ -659,7 +659,7 @@ def calculate_arpa(df_cm_metrics):
     df['month'] = ensure_month_format(df['month_start'])
 
     # ----------------------------------------------------------------------
-    # STEP 4: Select relevant columns and rename 'arpa' to 'arpa_cm'
+    # STEP 4: Select relevant columns and rename 'arpa' to 'arpa'
     # ----------------------------------------------------------------------
     # Matches the naming convention used across the pipeline for ChartMogul ARPA.
     df = df[['month', 'arpa']]
@@ -670,7 +670,7 @@ def calculate_arpa(df_cm_metrics):
     return df
 
 # --------------------------------------------------------------------------
-# 9. Customer Count (customers_cm)                        * VALID: Taken directly from CM_Metrics
+# 9. Customer Count (customers)                        * VALID: Taken directly from CM_Metrics
 #     ─────────────────────────────────────────────
 #
 # * Formula:
@@ -740,7 +740,7 @@ def calculate_customers(df_cm_metrics):
 #    ───────────────────────────────────────────────────────────
 #
 # * Formula:
-#     customer_churn_rate_cm = (lost_customers / starting_customers) × 100
+#     customer_churn_rate = (lost_customers / starting_customers) × 100
 #   Where:
 #     lost_customers = number of customers who cancelled all active subscriptions in the month
 #     starting_customers = number of active customers at the start of the month
@@ -754,7 +754,7 @@ def calculate_customers(df_cm_metrics):
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
 #     2. Select 'customer-churn-rate' column
-#     3. Rename it to 'customer_churn_rate_cm'
+#     3. Rename it to 'customer_churn_rate
 #
 # * Assumptions / Filters:
 #     - Follows ChartMogul’s default churn calculation:
@@ -765,7 +765,7 @@ def calculate_customers(df_cm_metrics):
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
 #             └── Select 'customer-churn-rate'
-#                 └── Rename to 'customer_churn_rate_cm'
+#                 └── Rename to 'customer_churn_rate'
 #
 # * Notes for Verification:
 #     - Compare with a local churn calculation for data validation if needed
@@ -829,7 +829,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
 #    ──────────────────────────────────────────────────────────
 #
 # * Formula:
-#     revenue_churn_rate_cm = (churned_mrr / starting_mrr) × 100
+#     revenue_churn_rate = (churned_mrr / starting_mrr) × 100
 #   Where:
 #     churned_mrr = total MRR lost in the month due to cancellations or downgrades
 #     starting_mrr = MRR at the beginning of the month
@@ -843,7 +843,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
 #     2. Select 'mrr-churn-rate' column
-#     3. Rename it to 'revenue_churn_rate_cm'
+#     3. Rename it to 'revenue_churn_rate'
 #
 # * Assumptions / Filters:
 #     - Follows ChartMogul’s default MRR churn rate calculation:
@@ -854,7 +854,7 @@ def calculate_customer_churn_rate(df_cm_metrics):
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
 #             └── Select 'mrr-churn-rate'
-#                 └── Rename to 'revenue_churn_rate_cm'
+#                 └── Rename to 'revenue_churn_rate'
 # --------------------------------------------------------------------------
 
 def calculate_revenue_churn_rate(df_cm_metrics):
@@ -915,7 +915,7 @@ def calculate_revenue_churn_rate(df_cm_metrics):
 #    ───────────────────────────────────────────────
 #
 # * Formula:
-#     ltv_cm = arpa / (customer_churn_rate / 100)
+#     ltv = arpa / (customer_churn_rate / 100)
 #   Where:
 #     arpa = Average Revenue Per Account (monthly)
 #     customer_churn_rate = % of customers lost in the month
@@ -929,7 +929,7 @@ def calculate_revenue_churn_rate(df_cm_metrics):
 # * Calculation Steps:
 #     1. Extract 'month' from 'month_start' column
 #     2. Select 'ltv' column
-#     3. Rename it to 'ltv_cm'
+#     3. Rename it to 'ltv'
 #
 # * Assumptions / Filters:
 #     - Follows ChartMogul’s default formula:
@@ -940,7 +940,7 @@ def calculate_revenue_churn_rate(df_cm_metrics):
 #     df_CM_metrics_clean
 #         └── Extract 'month' from 'month_start'
 #             └── Select 'ltv'
-#                 └── Rename to 'ltv_cm'
+#                 └── Rename to 'ltv'
 # --------------------------------------------------------------------------
 
 def calculate_ltv(df_cm_metrics):
@@ -997,12 +997,15 @@ def calculate_ltv(df_cm_metrics):
     return df
 
 # --------------------------------------------------------------------------
-# 12. Customer Acquisition Cost (CAC)           * VALID: 
+# 13. Customer Acquisition Cost (CAC)           * VALID: 
 #                                                 CAC costs taken from HD Purchases using 'total_eur'
 #                                                 (Only confirmed purchases, status == 1)
 #                                                 CAC suppliers identified in HD Contacts ('tags' contains "cac")
 #                                                 New Customers taken from CM_Customers
 #    ─────────────────────────────────────────────────────────────────────
+#
+# Tecnicamente el CAC como esta calculado aqui es correcto. 
+# Pero cuando se añadieron los tags era para dividir los costes entre tipos. 
 #
 # * Formula:
 #     cac = CAC Costs / New Customers
@@ -1172,14 +1175,14 @@ def calculate_cac(df_purchases, df_contacts, df_cm_customers):
     # ----------------------------------------------------------------------
     # - Perform an outer join on 'month' to ensure no time periods are lost
     # - Replace NaNs with 0 (some months may have spend but no new customers, or vice versa)
-    df = pd.merge(df_new_customers, df_cac_costs, on='month', how='outer').fillna(0)
+    df_cac = pd.merge(df_new_customers, df_cac_costs, on='month', how='outer').fillna(0)
 
     # ----------------------------------------------------------------------
     # STEP 7: Compute CAC = CAC Costs / New Customers
     # ----------------------------------------------------------------------
     # - Row-wise division: only compute CAC if there are new customers that month
     # - If no new customers, set CAC to 0 to avoid division by zero
-    df['cac'] = df.apply(
+    df_cac['cac'] = df_cac.apply(
         lambda row: row['cac_costs'] / row['new_customers'] if row['new_customers'] > 0 else 0,
         axis=1
     )
@@ -1188,10 +1191,10 @@ def calculate_cac(df_purchases, df_contacts, df_cm_customers):
     # STEP 8: Return final DataFrame
     # ----------------------------------------------------------------------
     # - Columns: ['month', 'cac_costs', 'new_customers', 'cac']
-    return df[['month', 'cac_costs', 'new_customers', 'cac']]
+    return df_cac[['month', 'cac_costs', 'new_customers', 'cac']]
 
 # --------------------------------------------------------------------------
-# 15. CAC:LTV Ratio (CAC_LTV)
+# 14. CAC:LTV Ratio (CAC_LTV)
 #    ─────────────────────────────────
 #
 # * Formula:
@@ -1203,7 +1206,7 @@ def calculate_cac(df_purchases, df_contacts, df_cm_customers):
 # * Source Table(s) and Columns:
 #     - Output of calculate_ltv():
 #         • 'month'
-#         • 'ltv_cm'
+#         • 'ltv'
 #     - Output of calculate_cac():
 #         • 'month'
 #         • 'cac'
@@ -1211,7 +1214,7 @@ def calculate_cac(df_purchases, df_contacts, df_cm_customers):
 # * Calculation Steps:
 #     1. Merge LTV and CAC dataframes on 'month'.
 #     2. For each month:
-#         • If CAC > 0 → cac_ltv_ratio = ltv_cm / cac
+#         • If CAC > 0 → cac_ltv_ratio = ltv / cac
 #         • If CAC = 0 → cac_ltv_ratio = 0
 #
 # * Assumptions / Filters:
@@ -1234,14 +1237,14 @@ def calculate_cac_ltv_ratio(df_ltv, df_cac):
     Calculate the CAC:LTV ratio for each month.
 
     Formula:
-        cac_ltv_ratio = ltv_cm / cac
+        cac_ltv_ratio = ltv / cac
         if cac == 0 → cac_ltv_ratio = 0
 
     Parameters:
         df_ltv (pd.DataFrame):
             Output of calculate_ltv() containing:
             - 'month' (str, YYYY-MM)
-            - 'ltv_cm'   (float): Customer Lifetime Value
+            - 'ltv'   (float): Customer Lifetime Value
         df_cac (pd.DataFrame):
             Output of calculate_cac() containing:
             - 'month' (str, YYYY-MM)
@@ -1282,7 +1285,7 @@ def calculate_cac_ltv_ratio(df_ltv, df_cac):
     return df[['month', 'cac_ltv_ratio']]
 
 # --------------------------------------------------------------------------
-# 16. Operating Expenses (OPEX)         * VALID: Taken from HD Contacts & Purchases
+# 15. Operating Expenses (OPEX)         * VALID: Taken from HD Contacts & Purchases
 #                                        Only confirmed purchases (status == 1)
 #                                        EUR-normalized using 'total_eur'
 #    ─────────────────────────────────
@@ -1404,7 +1407,7 @@ def calculate_opex(df_purchases, df_contacts):
     return df_opex
 
 # --------------------------------------------------------------------------
-# 17. Cost of Goods Sold (COGS)         * VALID: Taken from HD Contacts & Purchases
+# 16. Cost of Goods Sold (COGS)         * VALID: Taken from HD Contacts & Purchases
 #                                        Only confirmed purchases (status == 1)
 #                                        EUR-normalized using 'total_eur'
 #    ─────────────────────────────────
@@ -1520,7 +1523,7 @@ def calculate_cogs(df_purchases, df_contacts):
     return df_cogs
 
 # --------------------------------------------------------------------------
-# 18. Financial Costs (financial_costs)   * VALID: Taken from HD Contacts & Purchases
+# 17. Financial Costs (financial_costs)   * VALID: Taken from HD Contacts & Purchases
 #                                          Only confirmed purchases (status == 1)
 #                                          EUR-normalized using 'total_eur'
 #    ─────────────────────────────────
@@ -1631,16 +1634,17 @@ def calculate_financial_costs(df_purchases, df_contacts):
     return df_fin_costs
 
 # --------------------------------------------------------------------------
-# 19. EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization)
+# 18. EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization)
 #    ───────────────────────────────────────────────────────────────────────
 #
 # * Formula:
-#     ebitda = mrr - (opex + cogs + financial_costs)
+#     ebitda = mrr - (opex + cogs + financial_costs + cac_costs)
 #   Where:
 #     mrr = total monthly recurring revenue
 #     opex = total operating expenses
 #     cogs = total cost of goods sold
 #     financial_costs = total financial costs
+#     cac_costs = total CAC acquisition spend (not divided by new customers)
 #
 # * Source Table(s) and Columns:
 #     - df_mrr (output of calculate_mrr_components):
@@ -1655,11 +1659,14 @@ def calculate_financial_costs(df_purchases, df_contacts):
 #     - df_financial_costs (output of calculate_financial_costs):
 #         • 'month'
 #         • 'financial_costs'
+#     - df_cac (output of calculate_cac):
+#         • 'month'
+#         • 'cac_costs'
 #
 # * Calculation Steps:
-#     1. Merge df_mrr, df_opex, df_cogs, and df_financial_costs on 'month'.
+#     1. Merge df_mrr, df_opex, df_cogs, df_financial_costs, and df_cac on 'month'.
 #     2. Fill any missing values with 0.
-#     3. Calculate: ebitda = mrr - (opex + cogs + financial_costs).
+#     3. Calculate: ebitda = mrr - (opex + cogs + financial_costs + cac_costs).
 #
 # * Assumptions / Filters:
 #     - All expenses (opex, cogs, financial_costs) are in the same currency as MRR.
@@ -1670,21 +1677,22 @@ def calculate_financial_costs(df_purchases, df_contacts):
 #         └── merge df_opex
 #             └── merge df_cogs
 #                 └── merge df_financial_costs
-#                     └── fillna(0)
-#                         └── calculate ebitda
+#                     └── merge df_cac
+#                         └── fillna(0)
+#                             └── calculate ebitda
 #
 # * Notes for Verification:
 #     - Ensure that expense categories do not overlap to avoid double-counting.
 #     - Compare EBITDA trend against historical financial reports if available.
 # --------------------------------------------------------------------------
 
-def calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs):
+def calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs, df_cac):
     """
     Calculate monthly EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization)
     from MRR and expense categories.
 
     Formula:
-        ebitda = mrr - (opex + cogs + financial_costs)
+        ebitda = mrr - (opex + cogs + financial_costs + cac_costs)
 
     Parameters:
         df_mrr (pd.DataFrame):
@@ -1699,6 +1707,9 @@ def calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs):
         df_financial_costs (pd.DataFrame):
             - 'month'           (str, YYYY-MM)
             - 'financial_costs' (float): Financial Costs
+        df_cac (pd.DataFrame):
+            - 'month'      (str, YYYY-MM)
+            - 'cac_costs'  (float): CAC acquisition spend
 
     Returns:
         pd.DataFrame:
@@ -1716,26 +1727,30 @@ def calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs):
         .merge(df_opex, on='month', how='outer')
         .merge(df_cogs, on='month', how='outer')
         .merge(df_financial_costs, on='month', how='outer')
+        .merge(df_cac[['month', 'cac_costs']], on='month', how='outer')
         .fillna(0)
     )
 
     # ----------------------------------------------------------------------
     # STEP 2: Calculate EBITDA
     # ----------------------------------------------------------------------
-    # Subtract total monthly expenses (opex + cogs + financial costs)
+    # Subtract total monthly expenses (opex + cogs + financial costs + cac_costs)
     # from the monthly recurring revenue (mrr).
-    df['ebitda'] = df['mrr'] - (df['opex'] + df['cogs'] + df['financial_costs'])
+    df['ebitda'] = df['mrr'] - (df['opex'] + df['cogs'] + df['financial_costs'] + df['cac_costs'])
 
     # ----------------------------------------------------------------------
     # STEP 3: Return final DataFrame
     # ----------------------------------------------------------------------
     return df[['month', 'ebitda']]
 
+
 # --------------------------------------------------------------------------
-# 20. Net Burn (net_burn)           * VALID: Subtracts revenue from core costs
+# 19. Net Burn (net_burn)           * VALID: Subtracts revenue from core costs
 #                                        Revenue from ChartMogul MRR Components
 #                                        Costs from Holded Purchases ('total_eur')
 #    ─────────────────────────────────
+# * Seria mejor calcularlo en base a las entradas del daily ledger (la suma de todos los debits menos la suma de todos los credits)
+# * Debits: Gastos, Credits: Entradas (revenue)
 #
 # * Formula:
 #     net_burn = total_costs - total_revenue
@@ -1785,7 +1800,6 @@ def calculate_net_burn(df_purchases, df_cm_mrr_components):
     Returns:
         pd.DataFrame: DataFrame with:
             - 'month'       (YYYY-MM)
-            - 'mrr'         (float): Monthly recurring revenue
             - 'total_costs' (float): Total confirmed purchase costs in EUR
             - 'net_burn'    (float): Net burn (costs - revenue)
     """
@@ -1802,25 +1816,31 @@ def calculate_net_burn(df_purchases, df_cm_mrr_components):
     # ----------------------------------------------------------------------
     # STEP 2: Aggregate Monthly MRR from CM data
     # ----------------------------------------------------------------------
-    df_revenue = df_cm_mrr_components.groupby('date', as_index=False)['mrr'].sum()
-    df_revenue.rename(columns={'date': 'month'}, inplace=True)
+    df_revenue = df_cm_mrr_components.copy()
+    df_revenue['month'] = ensure_month_format(df_revenue['date'])
+    df_revenue = df_revenue.groupby('month', as_index=False)['mrr'].sum()
 
     # ----------------------------------------------------------------------
     # STEP 3: Merge Costs and Revenue, Fill Missing Values
     # ----------------------------------------------------------------------
     df_merged = pd.merge(df_costs, df_revenue, on='month', how='outer')
-    df_merged.fillna({'mrr': 0, 'total_costs': 0}, inplace=True)
+    df_merged.fillna({'total_costs': 0, 'mrr': 0}, inplace=True)
 
     # ----------------------------------------------------------------------
     # STEP 4: Calculate Net Burn
     # ----------------------------------------------------------------------
     df_merged['net_burn'] = df_merged['total_costs'] - df_merged['mrr']
 
-    return df_merged[['month', 'mrr', 'total_costs', 'net_burn']]
+    # ----------------------------------------------------------------------
+    # STEP 5: Return final DataFrame
+    # ----------------------------------------------------------------------
+    return df_merged[['month', 'total_costs', 'net_burn']]
+
 
 # --------------------------------------------------------------------------
-# 21. Burn Rate (burn_rate)
+# 20. Burn Rate (burn_rate)
 #    ─────────────────────────────────
+# 
 #
 # * Formula:
 #     burn_rate = abs(ebitda)
@@ -1889,107 +1909,191 @@ def calculate_burn_rate(df_ebitda):
     return df[['month', 'burn_rate']]
 
 # --------------------------------------------------------------------------
-# 21. Runway (runway)
+# 21. Runway (runway, cash_balance_eur)
 #    ─────────────────────────────────
 #
 # * Formula:
-#     runway = cash_balance / burn_rate
+#     runway = cash_balance_eur / burn_rate
 #   Where:
-#     cash_balance = total available cash
-#     burn_rate = monthly burn rate (absolute value of EBITDA)
+#     cash_balance_eur = Total cash/bank balance in EUR (from treasury data)
+#     burn_rate        = Monthly burn rate (absolute EBITDA)
 #
 # * Source Table(s) and Columns:
 #     - df_burn_rate:
 #         • 'month'
 #         • 'burn_rate'
-#     - cash_balance: provided as a parameter
+#     - df_cash_balance (optional; if not provided, a numeric constant may be used):
+#         • 'month' or 'date'
+#         • 'cash_balance_eur'
 #
 # * Calculation Steps:
-#     1. For each month, divide cash_balance by burn_rate.
-#     2. If burn_rate is 0 → set runway to infinity (or a large placeholder).
+#     1. Normalize df_burn_rate['month'] to YYYY-MM.
+#     2. If the 2nd arg is numeric → use it as a constant cash balance for all months.
+#        If it is a DataFrame → normalize its month, coerce cash to numeric,
+#        aggregate to monthly (e.g., last recorded balance per month),
+#        then outer-merge into df_burn_rate.
+#     3. Fill missing values with 0 for safe division.
+#     4. Compute runway = cash_balance_eur / burn_rate (None if burn_rate == 0).
 #
 # * Assumptions / Filters:
-#     - Cash balance is constant for calculation purposes unless specified.
+#     - burn_rate is nonnegative (e.g., abs(EBITDA)).
+#     - Treasury data may be daily; taking the last balance in each month represents month-end cash.
 #
 # * Flowchart:
-#     df_burn_rate
-#         └── divide cash_balance / burn_rate
+#     df_burn_rate ─┬── normalize month
+#                   └── (constant cash OR merge normalized+monthly cash DF)
+#                        └── compute runway
+#
+# * Notes for Verification:
+#     - If you want real cash values per month, pass the treasury DataFrame here.
 # --------------------------------------------------------------------------
-def calculate_runway(df_burn_rate, cash_balance):
+
+def calculate_runway(df_burn_rate, cash_or_df):
     """
-    Calculate the company's financial runway in months.
-
-    Runway represents the number of months the company can continue operating
-    before exhausting its cash reserves, given the current burn rate.
-
-    Formula:
-        runway = cash_balance / burn_rate
-        if burn_rate == 0 → runway = infinity
+    Calculate the runway in months using cash balance and burn rate.
 
     Parameters:
-        df_burn_rate (pd.DataFrame): DataFrame containing:
-            - 'month'      (str, YYYY-MM): Month of the metric
-            - 'burn_rate'  (float): Monthly burn rate (absolute EBITDA)
-        cash_balance (float): Current available cash balance.
+        df_burn_rate (pd.DataFrame):
+            - 'month'      (str/date)
+            - 'burn_rate'  (float)
+        cash_or_df (float or pd.DataFrame):
+            - If float/int: constant cash balance used for all months
+            - If DataFrame: must include:
+                • 'month' or 'date' (str/date)
+                • 'cash_balance_eur' (float)
 
     Returns:
-        pd.DataFrame: DataFrame with:
-            - 'month'  (str, YYYY-MM)
-            - 'runway' (float): Runway in months
-
-    Notes:
-        - If burn_rate is zero, the function sets runway to infinity.
-        - Assumes cash balance is constant unless otherwise specified.
-        - Works on a per-month basis, aligning burn_rate and runway chronologically.
+        pd.DataFrame:
+            - 'month'            (str, YYYY-MM)
+            - 'cash_balance_eur' (float)
+            - 'runway'           (float)
     """
+
+    # ----------------------------------------------------------------------
+    # STEP 1: Work on a copy and normalize 'month'
+    # ----------------------------------------------------------------------
     df = df_burn_rate.copy()
-    df['runway'] = df['burn_rate'].apply(lambda br: (cash_balance / br) if br > 0 else float('inf'))
-    return df[['month', 'runway']]
+    df['month'] = ensure_month_format(df['month'])
+    df['burn_rate'] = pd.to_numeric(df['burn_rate'], errors='coerce').fillna(0.0)
+
+    # ----------------------------------------------------------------------
+    # STEP 2: Attach cash balance (constant OR from DataFrame)
+    # ----------------------------------------------------------------------
+    if isinstance(cash_or_df, (int, float)):                     # constant cash path
+        df['cash_balance_eur'] = float(cash_or_df or 0)
+    else:                                                         # DataFrame path
+        cash = cash_or_df.copy()
+        # Pick month column and ensure required fields exist
+        month_col = 'month' if 'month' in cash.columns else ('date' if 'date' in cash.columns else None)
+        if month_col is None:
+            raise ValueError("df_cash_balance must include a 'month' or 'date' column.")
+        if 'cash_balance_eur' not in cash.columns:
+            # best-effort fallback to common alternatives
+            for alt in ['balance_eur', 'balance', 'cash']:
+                if alt in cash.columns:
+                    cash['cash_balance_eur'] = cash[alt]
+                    break
+            if 'cash_balance_eur' not in cash.columns:
+                raise ValueError("df_cash_balance must include 'cash_balance_eur' (or a recognizable balance column).")
+
+        # Normalize to YYYY-MM and aggregate to monthly (month-end by .last())
+        cash['month'] = ensure_month_format(cash[month_col])
+        cash['cash_balance_eur'] = pd.to_numeric(cash['cash_balance_eur'], errors='coerce')
+        cash = (
+            cash[['month', 'cash_balance_eur']]
+            .groupby('month', as_index=False)['cash_balance_eur']
+            .last()
+        )
+
+        # Merge monthly cash into burn-rate table
+        df = pd.merge(df, cash, on='month', how='outer')
+        df['cash_balance_eur'] = df['cash_balance_eur'].fillna(0.0)
+
+    # ----------------------------------------------------------------------
+    # STEP 3: Calculate Runway (months)
+    # ----------------------------------------------------------------------
+    # Avoid division by zero: set runway to None if burn_rate is 0
+    df['runway'] = df.apply(
+        lambda row: round(row['cash_balance_eur'] / row['burn_rate'], 2) if row['burn_rate'] != 0 else None,
+        axis=1
+    )
+
+    # ----------------------------------------------------------------------
+    # STEP 4: Return final DataFrame
+    # ----------------------------------------------------------------------
+    return df[['month', 'cash_balance_eur', 'runway']]
 
 # ------------------- Main Pipeline -------------------
 def run_pipeline(cash_balance):
     debug("Loading input datasets...")
-    df_customers = pd.read_csv('data/INPUT/chartmogul_customers/clean/chartmogul_customers_clean.csv')
-    # df_invoices = pd.read_csv('data/INPUT/holded_invoices/clean/holded_invoices_clean.csv')
+    df_customers_raw = pd.read_csv('data/INPUT/chartmogul_customers/clean/chartmogul_customers_clean.csv')
     df_purchases = pd.read_csv('data/INPUT/holded_purchases/clean/holded_purchases_clean.csv')
     df_contacts = pd.read_csv('data/INPUT/holded_contacts/clean/holded_contacts_clean.csv')
     df_mrr_components = pd.read_csv('data/INPUT/chartmogul_mrr_components/clean/chartmogul_mrr_components_clean.csv')
     df_cm_metrics = pd.read_csv('data/INPUT/chartmogul_metrics/clean/chartmogul_metrics_clean.csv')
+    df_treasury = pd.read_csv('data/INPUT/holded_treasury/clean/holded_treasury_clean.csv')
+
+    # Normalize common treasury balance column names to 'cash_balance_eur' (optional but helpful)
+    if 'cash_balance_eur' not in df_treasury.columns:
+        for alt in ['balance_eur', 'ending_balance', 'balance', 'cash']:
+            if alt in df_treasury.columns:
+                df_treasury = df_treasury.rename(columns={alt: 'cash_balance_eur'})
+                debug(f"Renamed treasury column '{alt}' -> 'cash_balance_eur'")
+                break
 
     validate_columns(df_contacts, ['id', 'tags'], "Contacts")
     validate_columns(df_purchases, ['date', 'contact', 'total'], "Purchases")
 
     # --- Compute metrics in script order ---
-    df_mrr = calculate_mrr(df_mrr_components)                                   # 1
-    df_expansion_mrr = calculate_expansion_mrr(df_mrr_components)               # 2
-    df_contraction_mrr = calculate_contraction_mrr(df_mrr_components)           # 3
-    df_new_mrr = calculate_new_mrr(df_mrr_components)                           # 4
-    df_churned_mrr = calculate_churned_mrr(df_mrr_components)                   # 5
-    df_net_new_mrr = calculate_net_new_mrr(df_mrr_components)                   # 6
-    df_arr = calculate_arr(df_mrr_components)                                   # 7
-    df_arpa_cm = calculate_arpa(df_cm_metrics)                                  # 8
-    df_customers_cm = calculate_customers(df_cm_metrics)                     # 9
-    df_customer_churn_rate = calculate_customer_churn_rate(df_cm_metrics)       # 10
-    df_revenue_churn_rate = calculate_revenue_churn_rate(df_cm_metrics)         # 11
-    df_ltv = calculate_ltv(df_cm_metrics)                                 # 12
-    df_cac = calculate_cac(df_purchases, df_contacts, df_customers)             # 13
-    df_cac_ltv_ratio = calculate_cac_ltv_ratio(df_ltv, df_cac)               # 14
-    df_opex = calculate_opex(df_purchases, df_contacts)                         # 15
-    df_cogs = calculate_cogs(df_purchases, df_contacts)                         # 16
-    df_financial_costs = calculate_financial_costs(df_purchases, df_contacts)   # 17
-    df_ebitda = calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs)  # 18
-    df_burn_rate = calculate_burn_rate(df_ebitda)                               # 19
-    df_runway = calculate_runway(df_burn_rate, cash_balance)                    # 20
+    df_mrr = calculate_mrr(df_mrr_components)                                           # 1
+    df_expansion_mrr = calculate_expansion_mrr(df_mrr_components)                       # 2
+    df_contraction_mrr = calculate_contraction_mrr(df_mrr_components)                   # 3
+    df_new_mrr = calculate_new_mrr(df_mrr_components)                                   # 4
+    df_churned_mrr = calculate_churned_mrr(df_mrr_components)                           # 5
+    df_net_new_mrr = calculate_net_new_mrr(df_mrr_components)                           # 6
+    df_arr = calculate_arr(df_mrr_components)                                           # 7
+    df_arpa = calculate_arpa(df_cm_metrics)                                             # 8
+    df_customers = calculate_customers(df_cm_metrics)                                   # 9
+    df_customer_churn_rate = calculate_customer_churn_rate(df_cm_metrics)               # 10
+    df_revenue_churn_rate = calculate_revenue_churn_rate(df_cm_metrics)                 # 11
+    df_ltv = calculate_ltv(df_cm_metrics)                                               # 12
+    df_cac = calculate_cac(df_purchases, df_contacts, df_customers_raw)                 # 13  <-- FIX
+    df_cac_ltv_ratio = calculate_cac_ltv_ratio(df_ltv, df_cac)                          # 14
+    df_opex = calculate_opex(df_purchases, df_contacts)                                 # 15
+    df_cogs = calculate_cogs(df_purchases, df_contacts)                                 # 16
+    df_financial_costs = calculate_financial_costs(df_purchases, df_contacts)           # 17
+    df_ebitda = calculate_ebitda(df_mrr, df_opex, df_cogs, df_financial_costs, df_cac)  # 18
+    df_net_burn = calculate_net_burn(df_purchases, df_mrr_components)                   # 19
+    df_burn_rate = calculate_burn_rate(df_ebitda)                                       # 20
+
+    # Use treasury DF if available; otherwise fall back to the CLI constant
+    cash_source = df_treasury if not df_treasury.empty else cash_balance
+    debug(f"Runway cash source: {'treasury DF' if isinstance(cash_source, pd.DataFrame) else 'constant'}")
+    df_runway = calculate_runway(df_burn_rate, cash_source)                             # 21
 
     # --- Merge all metrics in script order ---
     dfs = [
-        df_mrr, df_expansion_mrr, df_contraction_mrr, df_new_mrr, df_churned_mrr,
-        df_net_new_mrr, df_arr,
-        df_arpa_cm,
-        df_customer_churn_rate, df_customers_cm, df_revenue_churn_rate,
-        df_ltv, df_cac, df_cac_ltv_ratio,
-        df_opex, df_cogs, df_financial_costs,
-        df_ebitda, df_burn_rate, df_runway
+        df_mrr,                         # 1
+        df_expansion_mrr,               # 2
+        df_contraction_mrr,             # 3
+        df_new_mrr,                     # 4
+        df_churned_mrr,                 # 5
+        df_net_new_mrr,                 # 6
+        df_arr,                         # 7
+        df_arpa,                        # 8
+        df_customers,                   # 9
+        df_customer_churn_rate,         # 10
+        df_revenue_churn_rate,          # 11
+        df_ltv,                         # 12
+        df_cac,                         # 13
+        df_cac_ltv_ratio,               # 14
+        df_opex,                        # 15
+        df_cogs,                        # 16
+        df_financial_costs,             # 17
+        df_ebitda,                      # 18
+        df_net_burn,                    # 19
+        df_burn_rate,                   # 20
+        df_runway                       # 21
     ]
 
     df_final = dfs[0]
@@ -2010,7 +2114,7 @@ def run_pipeline(cash_balance):
         'customers', 'customer_churn_rate', 'revenue_churn_rate', 'ltv',
         'cac_costs', 'new_customers', 'cac', 'cac_ltv_ratio',
         'opex', 'cogs', 'financial_costs',
-        'ebitda', 'burn_rate', 'runway'
+        'ebitda', 'burn_rate', 'net_burn', 'cash_balance_eur', 'runway'
     ]
 
     ordered_columns = [col for col in preferred_order if col in df_final.columns]
@@ -2044,7 +2148,6 @@ def run_pipeline(cash_balance):
     df_final.to_csv(latest_csv, index=False)
     save_parquet(df_final, latest_parquet)
     debug(f"Static latest metrics saved at {latest_csv} and {latest_parquet}")
-
 
 
 # ------------------- Entry Point -------------------

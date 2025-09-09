@@ -69,6 +69,9 @@ scripts = [
     "data_pipeline/HD/Transform/transform_HD_expenses.py",
     "data_pipeline/HD/Extract/extract_HD_purchases.py",
     "data_pipeline/HD/Transform/transform_HD_purchases.py",
+    "data_pipeline/HD/Extract/extract_HD_daily_ledger.py",
+    "data_pipeline/HD/Transform/transform_HD_daily_ledger.py",
+    "data_pipeline/HD/Extract/extract_HD_treasury.py",
 ]
 
 # ================================================================
@@ -81,6 +84,7 @@ required_files = [
     "data/INPUT/holded_contacts/clean/holded_contacts_clean.csv",
     "data/INPUT/holded_expenses/clean/holded_expenses_clean.csv",
     "data/INPUT/holded_purchases/clean/holded_purchases_clean.csv",
+    "data/INPUT/holded_treasury/clean/holded_treasury_clean.csv",
 ]
 
 results = []

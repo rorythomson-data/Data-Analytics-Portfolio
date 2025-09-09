@@ -1,123 +1,155 @@
-# 📊 Panel de Control de la Práctica (Internship Dashboard)
+# Internship Dashboard – Handover
 
 ![Internship Dashboard Pipeline](https://github.com/rorythomson-data/Internship_Dashboard/actions/workflows/main.yml/badge.svg)
 
 Este repositorio contiene un **pipeline de datos modular y listo para producción**.  
 El pipeline **automatiza la extracción, transformación y almacenamiento de métricas de negocio** desde dos plataformas SaaS:
 
-- **ChartMogul** (métricas de suscripción, clientes y planes).
-- **Holded** (facturas, pagos, contactos y gastos).
+- **ChartMogul** (métricas de suscripción, clientes, planes, MRR).
+- **Holded** (facturas, pagos, contactos, gastos, tesorería).
 
-Los datos procesados están listos para visualización en **Power BI**, con un enfoque dirigido a ejecutivos y accionistas.
+Los datos procesados están listos para su visualización en **Power BI**, con un enfoque dirigido a la toma de decisiones ejecutivas.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 - **Extracción automática** desde APIs REST (ChartMogul y Holded).
 - **Transformación y limpieza** de estructuras JSON anidadas.
 - **Almacenamiento organizado**:
-  - Datos crudos en `data/INPUT/raw/`.
-  - Datos transformados en `data/INPUT/clean/` listos para BI.
+  - Datos crudos en `data/INPUT/<endpoint>/raw/`.
+  - Datos transformados en `data/INPUT/<endpoint>/clean/`.
+  - Métricas finales en `data/OUTPUT/`.
 - **Automatización completa** con `run_all.py`.
-- **Logs detallados** con marcas de tiempo (`logs/pipeline.log`).
-- **Integración CI/CD** con GitHub Actions:
-  - Ejecución automática del pipeline.
-  - Descarga de resultados (`data/OUTPUT/`) como artefactos.
+- **Logs detallados** en `logs/` (`pipeline.log`, `metrics_pipeline.log`).
+- **Integración opcional con CI/CD** (GitHub Actions o similar).
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```plaintext
 Internship_Dashboard/
 │
 ├── data/
-│   ├── INPUT/          # Datos crudos y limpios
-│   └── OUTPUT/         # Métricas finales y resúmenes
+│   ├── INPUT/            # Datos crudos y limpios (por endpoint)
+│   └── OUTPUT/           # Métricas finales para BI
 │
 ├── data_pipeline/
-│   ├── CM/             # Scripts para ChartMogul
+│   ├── CM/               # Scripts para ChartMogul
 │   │   ├── Extract/
 │   │   └── Transform/
-│   ├── HD/             # Scripts para Holded
+│   ├── HD/               # Scripts para Holded
 │   │   ├── Extract/
 │   │   └── Transform/
 │
-├── notebooks/          # Notebooks de análisis y validación
-├── reports/            # Informes y Power BI (.pbix)
-├── logs/               # Registros de ejecución
-├── run_all.py          # Script principal
-├── requirements.txt    # Dependencias de Python
-└── .env                # Claves de API (no subir a Git)
+├── dashboard/            # Dashboard de Power BI (.pbix)
+├── notebooks/            # Notebooks de análisis y validación
+├── reports/              # Informes adicionales
+├── logs/                 # Registros de ejecución
+├── run_all.py            # Script principal (ejecuta todo el pipeline)
+├── metrics_pipeline.py   # Construcción de métricas
+├── requirements.txt      # Dependencias de Python
+└── (crear `.env`)        # Claves de API (no subir a Git)
 ```
 
 ---
 
-## ⚙️ Configuración Inicial
+## Configuración Inicial
 
-Clona este repositorio y crea un entorno virtual:
+1) **Clonar el repositorio**
 
 ```bash
-git clone https://github.com/rorythomson-data/Internship_Dashboard.git
+git clone <COMPANY_REPO_URL> Internship_Dashboard
 cd Internship_Dashboard
-python -m venv venv
-./venv/Scripts/activate       # Windows
-source venv/bin/activate      # macOS/Linux
+```
+
+2) **Crear entorno virtual**
+
+```bash
+# Windows (PowerShell)
+python -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
+
+# macOS/Linux
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+3) **Instalar dependencias**
+
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Crea un archivo `.env` en la raíz con tus claves:
+4) **Configurar variables de entorno**
+
+Cree un archivo `.env` en la raíz con sus claves (no lo comparta ni lo suba a Git):
 
 ```ini
-CHARTMOGUL_API_KEY=tu_clave_chartmogul
-HOLDED_API_KEY=tu_clave_holded
+CHARTMOGUL_API_KEY=su_clave_chartmogul
+HOLDED_API_KEY=su_clave_holded
 ```
+
+El proyecto usa `os.getenv("CHARTMOGUL_API_KEY")` y `os.getenv("HOLDED_API_KEY")`.
 
 ---
 
-## ▶ Ejecución del Pipeline
+## Ejecución del Pipeline (local)
 
 ```bash
 python run_all.py
 ```
 
-Los datos serán descargados, transformados y guardados en `data/OUTPUT/`.  
-Puedes revisar el registro de ejecución en `logs/pipeline.log`.
+El pipeline:
+1. Extrae datos crudos → `data/INPUT/<endpoint>/raw/*.json`
+2. Transforma y limpia → `data/INPUT/<endpoint>/clean/*.csv/.parquet`
+3. Construye métricas → `data/OUTPUT/final_metrics_latest.csv` (y `.parquet`)
+4. Registra actividad → `logs/`
 
 ---
 
-## 🔄 Integración Continua (CI/CD)
+## Dashboard de Power BI
 
-Cada vez que se hace un **push** a la rama `main`, GitHub Actions:
+Archivo: `dashboard/metrics_dashboard.pbix`
 
-1. Instala dependencias de `requirements.txt`.
-2. Ejecuta `run_all.py`.
-3. Genera artefactos descargables con los archivos de `data/OUTPUT/`.
+- Abrir en **Power BI Desktop**.
+- Si aparece un error de ruta, actualizar la conexión a `data/OUTPUT/final_metrics_latest.csv`.
+- Pulsar **Actualizar (Refresh)** para cargar las métricas más recientes.
 
-Puedes ver el estado de la última ejecución en el **badge** al inicio del README.
-
----
-
-Además de ejecutarse manualmente con `python run_all.py`, el pipeline ahora se ejecuta **automáticamente todos los días a las 02:00 UTC** gracias a GitHub Actions.
-
-Puedes descargar los resultados diarios (archivos en `data/OUTPUT/`) desde:
-- La pestaña **Actions** en el repositorio.
-- Seleccionando la ejecución más reciente del flujo de trabajo **Internship Dashboard Pipeline**.
-- Descargando el artefacto **pipeline-output**.
+Opcional: publicar en **Power BI Service** y configurar actualizaciones automáticas.
 
 ---
 
-## 📄 Guía de Entrega
+## Integración Continua (opcional)
 
-Para una referencia rápida sobre la configuración, ejecución del pipeline y visualización de resultados, consulta el documento:
+El pipeline puede integrarse con **GitHub Actions** u otro orquestador CI/CD:
 
-[📥 handover_guide.pdf](handover_guide.pdf)
+- Instalación de dependencias desde `requirements.txt`.
+- Ejecución de `run_all.py`.
+- Publicación de artefactos desde `data/OUTPUT/`.
 
-Este documento incluye:
-- Pasos de configuración del entorno.
-- Ejecución del pipeline (`run_all.py`).
-- Integración con GitHub Actions.
-- Conexión de los datos en Power BI.
+> La empresa debe configurar su propio flujo CI/CD en su repositorio interno.  
+> Este README proporciona las instrucciones, pero la configuración depende del entorno de la compañía.
+
+---
+
+## Notas Importantes
+
+- **Python version:** desarrollado en **3.12.0** (usar 3.12.x recomendado).
+- **Secretos:** no incluir `.env` en Git. Usar variables de entorno o gestores de secretos.
+- **Paths:** si el proyecto se mueve a OneDrive u otra carpeta, actualizar las rutas de conexión en Power BI.
+- **Logs:** revisar `logs/` para diagnosticar errores.
+- **Deliverables oficiales:**  
+  - `dashboard/metrics_dashboard.pbix`  
+  - `data/OUTPUT/final_metrics_latest.csv` (entrada al dashboard)
+
+---
+
+## Contacto / Ownership
+
+Este repositorio se transfiere ahora a la organización de la empresa.  
+
 
 
