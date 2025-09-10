@@ -32,6 +32,16 @@ Sensitive data and files have been removed, but the structure and scripts remain
 
 ---
 
+## 📷 Dashboard Preview
+Here are blurred screenshots of the Power BI dashboard (sensitive numbers hidden):
+
+![Dashboard Screenshot 1](assets/1.png)  
+![Dashboard Screenshot 2](assets/2.png)  
+![Dashboard Screenshot 3](assets/3.png)  
+![Dashboard Screenshot 4](assets/4.png)  
+
+---
+
 ## 🔒 Notes
 - Sensitive files (real JSON data, Power BI dashboards, logs) have been removed.
 - This version is for **portfolio demonstration only**.
@@ -83,6 +93,16 @@ Los archivos sensibles han sido eliminados, pero la estructura y los scripts se 
 - **Proceso ETL:** Transformación de JSON crudos en CSV/Parquet limpios.
 - **Automatización:** Workflow en GitHub Actions en *modo demo* (sin llamadas a APIs reales).
 - **Reproducibilidad:** Estructura de carpetas mantenida con `.gitkeep`.
+
+---
+
+## 📷 Vista del Dashboard
+Aquí se muestran capturas del dashboard en Power BI (con números sensibles ocultos):
+
+![Captura 1 del Dashboard](assets/1.png)  
+![Captura 2 del Dashboard](assets/2.png)  
+![Captura 3 del Dashboard](assets/3.png)  
+![Captura 4 del Dashboard](assets/4.png) 
 
 ---
 
