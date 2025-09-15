@@ -151,3 +151,7 @@ data/interim/
 # API keys or config files
 config.py
 .env
+data/*
+!data/**/.gitkeep
+models/
+!data/.gitkeep
