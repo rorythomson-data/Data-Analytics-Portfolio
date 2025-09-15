@@ -129,3 +129,25 @@ data/OUTPUT/
 *.parquet
 logs/
 .vscode/
+
+# VSCode settings (if applicable)
+.vscode/
+
+# Power BI files
+*.pbix
+
+# Logs
+logs/
+*.log
+
+# Outputs
+reports/
+data/processed/
+data/interim/
+
+# Notebook metadata and exports
+*.nbconvert.ipynb
+
+# API keys or config files
+config.py
+.env
